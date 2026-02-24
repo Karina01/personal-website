@@ -6,92 +6,74 @@
   <title>{{ page.title }} | {{ site.title }}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       box-sizing: border-box;
     }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
       max-width: 900px;
       margin: 0 auto;
-      padding: 40px 24px;
-      line-height: 1.7;
-      background: #f8f9fa;
-      color: #1a1a2e;
+      padding: 60px 24px;
+      line-height: 1.6;
+      background: #0a0a0b;
+      color: #e4e4e7;
     }
 
     /* Navigation */
     nav {
-      background: #fff;
-      border-radius: 12px;
-      padding: 16px 24px;
-      margin-bottom: 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      margin-bottom: 60px;
       display: flex;
       gap: 32px;
     }
 
     nav a {
       text-decoration: none;
-      color: #64748b;
+      color: #71717a;
       font-weight: 500;
-      font-size: 15px;
+      font-size: 14px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
       transition: color 0.2s;
     }
 
     nav a:hover {
-      color: #2563eb;
+      color: #fff;
     }
 
     /* Header Section */
     .header-section {
-      background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-      color: #fff;
-      border-radius: 16px;
-      padding: 48px 40px;
-      margin-bottom: 40px;
-      text-align: center;
+      margin-bottom: 60px;
     }
 
     .header-section h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
       margin: 0 0 12px 0;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
+      color: #fff;
     }
 
     .header-section .tagline {
       font-size: 1.1rem;
-      opacity: 0.9;
+      color: #71717a;
       font-weight: 400;
       margin: 0;
-    }
-
-    /* Section Titles */
-    h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin: 48px 0 24px 0;
-      padding-bottom: 12px;
-      border-bottom: 3px solid #2563eb;
-      display: inline-block;
     }
 
     /* Theme Cards Grid */
     .theme-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      margin-top: 40px;
+      gap: 16px;
     }
 
     /* Flip Card Container */
     .flip-card {
       perspective: 1000px;
-      height: 280px;
+      height: 260px;
     }
 
     .flip-card-inner {
@@ -112,97 +94,92 @@
       width: 100%;
       height: 100%;
       backface-visibility: hidden;
-      border-radius: 16px;
+      border-radius: 12px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       padding: 32px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     }
 
     .flip-card-front {
-      background: #fff;
+      background: #18181b;
+      border: 1px solid #27272a;
     }
 
     .flip-card-back {
       transform: rotateY(180deg);
-      color: #fff;
     }
 
     .flip-card-front h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: 1.1rem;
+      font-weight: 600;
       margin: 0;
-      color: #1a1a2e;
+      color: #e4e4e7;
+      letter-spacing: -0.01em;
     }
 
     .flip-card-front .icon {
-      font-size: 2.5rem;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    .flip-card-front .icon svg {
+      width: 32px;
+      height: 32px;
+      stroke-width: 1.5;
     }
 
     .flip-card-back h3 {
-      font-size: 1.2rem;
+      font-size: 1rem;
       font-weight: 600;
-      margin: 0 0 16px 0;
+      margin: 0 0 14px 0;
+      color: #fff;
     }
 
     .flip-card-back p {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       line-height: 1.6;
       margin: 0;
-      opacity: 0.95;
+      opacity: 0.85;
+      color: #fff;
     }
 
     /* Card Color Themes */
-    .theme-energy .flip-card-front { border-bottom: 4px solid #059669; }
-    .theme-energy .flip-card-front h3 { color: #059669; }
-    .theme-energy .flip-card-back { background: linear-gradient(135deg, #059669 0%, #047857 100%); }
+    .theme-energy .flip-card-front .icon { color: #22c55e; }
+    .theme-energy .flip-card-back { background: #18181b; border: 1px solid #22c55e; }
 
-    .theme-entrepreneurship .flip-card-front { border-bottom: 4px solid #dc2626; }
-    .theme-entrepreneurship .flip-card-front h3 { color: #dc2626; }
-    .theme-entrepreneurship .flip-card-back { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); }
+    .theme-entrepreneurship .flip-card-front .icon { color: #f97316; }
+    .theme-entrepreneurship .flip-card-back { background: #18181b; border: 1px solid #f97316; }
 
-    .theme-strategy .flip-card-front { border-bottom: 4px solid #2563eb; }
-    .theme-strategy .flip-card-front h3 { color: #2563eb; }
-    .theme-strategy .flip-card-back { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); }
+    .theme-strategy .flip-card-front .icon { color: #3b82f6; }
+    .theme-strategy .flip-card-back { background: #18181b; border: 1px solid #3b82f6; }
 
-    .theme-data .flip-card-front { border-bottom: 4px solid #7c3aed; }
-    .theme-data .flip-card-front h3 { color: #7c3aed; }
-    .theme-data .flip-card-back { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); }
-
-    /* Responsive for mobile */
-    @media (max-width: 640px) {
-      .theme-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .flip-card {
-        height: 240px;
-      }
-    }
+    .theme-data .flip-card-front .icon { color: #a855f7; }
+    .theme-data .flip-card-back { background: #18181b; border: 1px solid #a855f7; }
 
     /* Contact Page Styles */
-    .contact-section {
-      background: #fff;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    .contact-section h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 32px 0;
+      letter-spacing: -0.02em;
     }
 
-    .contact-section h1 {
-      font-size: 1.75rem;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin: 0 0 24px 0;
+    .contact-section p {
+      margin: 0 0 16px 0;
+      color: #a1a1aa;
+    }
+
+    .contact-section strong {
+      color: #e4e4e7;
     }
 
     .contact-section a {
-      color: #2563eb;
+      color: #3b82f6;
       text-decoration: none;
-      font-weight: 500;
     }
 
     .contact-section a:hover {
@@ -212,42 +189,30 @@
     /* Responsive Design */
     @media (max-width: 640px) {
       body {
-        padding: 20px 16px;
-      }
-
-      nav {
-        padding: 14px 20px;
-        gap: 24px;
-      }
-
-      .header-section {
-        padding: 36px 24px;
+        padding: 40px 20px;
       }
 
       .header-section h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
 
-      .job-card, .edu-card {
-        padding: 20px 24px;
+      .theme-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
       }
 
-      .job-card .role {
-        flex-direction: column;
-        gap: 4px;
-      }
-
-      .contact-section {
-        padding: 28px 24px;
+      .flip-card {
+        height: 220px;
       }
     }
 
     /* Footer */
     footer {
       text-align: center;
-      padding: 40px 0 20px 0;
-      color: #94a3b8;
-      font-size: 0.875rem;
+      padding: 60px 0 20px 0;
+      color: #3f3f46;
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
     }
   </style>
 </head>
