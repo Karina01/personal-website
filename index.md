@@ -5,7 +5,7 @@ title: Home
 
 <div class="header-section">
   <h1>Karina Brown</h1>
-  <p class="tagline">Organisational Transformation / Copenhagen</p>
+  <p class="tagline">Building products and helping organisations with strategy execution. Based in Copenhagen.</p>
 </div>
 
 <div class="theme-grid">
