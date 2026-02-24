@@ -89,8 +89,3 @@ Introduction to Data Science (2020)
 **Goldsmiths, University of London**
 Introduction to Python - Data Analysis and Programming (2019)
 
-## Skills
-
-- Business Transformation
-- Business Process Improvement
-- Business Analysis
