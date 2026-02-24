@@ -161,29 +161,63 @@
 
     /* Contact Page Styles */
     .contact-section h1 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       font-weight: 700;
       color: #fff;
-      margin: 0 0 32px 0;
-      letter-spacing: -0.02em;
+      margin: 0 0 48px 0;
+      letter-spacing: -0.03em;
     }
 
-    .contact-section p {
-      margin: 0 0 16px 0;
-      color: #a1a1aa;
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    .contact-section strong {
-      color: #e4e4e7;
-    }
-
-    .contact-section a {
-      color: #3b82f6;
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      background: #18181b;
+      border: 1px solid #27272a;
+      border-radius: 12px;
       text-decoration: none;
+      color: #e4e4e7;
+      transition: border-color 0.2s, background 0.2s;
     }
 
-    .contact-section a:hover {
-      text-decoration: underline;
+    .contact-link:hover {
+      border-color: #3b82f6;
+      background: #1c1c1f;
+    }
+
+    .contact-link .icon {
+      color: #71717a;
+    }
+
+    .contact-link .icon svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 1.5;
+    }
+
+    .contact-link span {
+      font-size: 1rem;
+    }
+
+    .contact-info {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px 24px;
+      color: #71717a;
+    }
+
+    .contact-info .icon svg {
+      width: 24px;
+      height: 24px;
+      stroke-width: 1.5;
     }
 
     /* Responsive Design */
