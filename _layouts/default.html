@@ -80,105 +80,108 @@
       display: inline-block;
     }
 
-    /* Job Cards */
-    .job-card {
+    /* Theme Cards Grid */
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    /* Flip Card Container */
+    .flip-card {
+      perspective: 1000px;
+      height: 280px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s ease;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front,
+    .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .flip-card-front {
       background: #fff;
-      border-radius: 12px;
-      padding: 28px 32px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      border-left: 4px solid transparent;
     }
 
-    .job-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-      border-left-color: #2563eb;
+    .flip-card-back {
+      transform: rotateY(180deg);
+      color: #fff;
     }
 
-    .job-card .company {
-      font-size: 1.25rem;
+    .flip-card-front h3 {
+      font-size: 1.4rem;
       font-weight: 700;
-      color: #2563eb;
+      margin: 0;
+      color: #1a1a2e;
+    }
+
+    .flip-card-front .icon {
+      font-size: 2.5rem;
+      margin-bottom: 16px;
+    }
+
+    .flip-card-back h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
       margin: 0 0 16px 0;
     }
 
-    .job-card .role {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-      gap: 8px;
-    }
-
-    .job-card .role-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: #1a1a2e;
-      margin: 0;
-    }
-
-    .job-card .role-dates {
-      font-size: 0.875rem;
-      color: #64748b;
-      font-weight: 500;
-    }
-
-    .job-card .location {
-      font-size: 0.875rem;
-      color: #94a3b8;
-      margin: 4px 0 12px 0;
-    }
-
-    .job-card ul {
-      margin: 12px 0 0 0;
-      padding-left: 20px;
-      color: #475569;
-    }
-
-    .job-card li {
-      margin-bottom: 8px;
-      line-height: 1.6;
-    }
-
-    .job-card li:last-child {
-      margin-bottom: 0;
-    }
-
-    /* Education Cards */
-    .edu-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px 32px;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .edu-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    }
-
-    .edu-card .institution {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #1a1a2e;
-      margin: 0 0 6px 0;
-    }
-
-    .edu-card .degree {
+    .flip-card-back p {
       font-size: 0.95rem;
-      color: #475569;
+      line-height: 1.6;
       margin: 0;
+      opacity: 0.95;
     }
 
-    .edu-card .year {
-      font-size: 0.875rem;
-      color: #94a3b8;
-      margin-top: 4px;
+    /* Card Color Themes */
+    .theme-energy .flip-card-front { border-bottom: 4px solid #059669; }
+    .theme-energy .flip-card-front h3 { color: #059669; }
+    .theme-energy .flip-card-back { background: linear-gradient(135deg, #059669 0%, #047857 100%); }
+
+    .theme-entrepreneurship .flip-card-front { border-bottom: 4px solid #dc2626; }
+    .theme-entrepreneurship .flip-card-front h3 { color: #dc2626; }
+    .theme-entrepreneurship .flip-card-back { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); }
+
+    .theme-strategy .flip-card-front { border-bottom: 4px solid #2563eb; }
+    .theme-strategy .flip-card-front h3 { color: #2563eb; }
+    .theme-strategy .flip-card-back { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); }
+
+    .theme-data .flip-card-front { border-bottom: 4px solid #7c3aed; }
+    .theme-data .flip-card-front h3 { color: #7c3aed; }
+    .theme-data .flip-card-back { background: linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%); }
+
+    /* Responsive for mobile */
+    @media (max-width: 640px) {
+      .theme-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .flip-card {
+        height: 240px;
+      }
     }
 
     /* Contact Page Styles */
