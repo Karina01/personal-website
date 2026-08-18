@@ -1,0 +1,6 @@
+[
+  { "n": 1, "title": "Experience",       "desc": "Read a brief story of my career to date", "url": "/experience/" },
+  { "n": 2, "title": "Current projects", "desc": "See what I'm currently working on",       "url": "/current-projects/" },
+  { "n": 3, "title": "About",            "desc": "Learn about who I am beyond work",        "url": "/about/" },
+  { "n": 4, "title": "Contact",          "desc": "Drop me a message",                       "url": "/contact/" }
+]

@@ -1,0 +1,32 @@
+---
+layout: layouts/base.njk
+permalink: /
+title: Karina Brown
+description: Karina Brown takes vague ideas and makes them real — in big companies and early ventures.
+---
+<section class="hero bleed">
+  <div class="hero__inner">
+    <h1 class="hero__line">I take vague ideas and make them real — in big companies and early ventures.</h1>
+  </div>
+</section>
+
+<section class="cards bleed" aria-labelledby="cards-heading" data-reveal>
+  <h2 class="visually-hidden" id="cards-heading">Sections</h2>
+  <ul class="cards__grid">
+    {% for card in cards %}
+      <li>
+        <a class="card card--{{ card.n }}" href="{{ card.url }}">
+          <span class="card__inner">
+            <span class="card__face card__face--front">
+              <span class="card__title">{{ card.title }}</span>
+              <span class="card__desc card__desc--static">{{ card.desc }}</span>
+            </span>
+            <span class="card__face card__face--back" aria-hidden="true">
+              <span class="card__desc">{{ card.desc }}</span>
+            </span>
+          </span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</section>

@@ -1,0 +1,6 @@
+{
+  "layout": "layouts/page.njk",
+  "permalink": "/current-projects/{{ page.fileSlug }}/",
+  "tags": "projects",
+  "label": "Current project"
+}

@@ -1,0 +1,28 @@
+<nav class="nav" data-nav aria-label="Primary">
+  <button
+    class="nav__toggle"
+    type="button"
+    data-nav-toggle
+    aria-expanded="false"
+    aria-controls="nav-links"
+    aria-label="Open menu"
+  >
+    <span class="nav__toggle-bar"></span>
+    <span class="nav__toggle-bar"></span>
+    <span class="nav__toggle-bar"></span>
+  </button>
+  <ul class="nav__links" id="nav-links">
+    {% for item in nav %}
+      <li>
+        <a
+          class="nav__link"
+          href="{{ item.url }}"
+          {% if page.url == item.url %}aria-current="page"{% endif %}
+        >{{ item.label }}</a>
+      </li>
+    {% endfor %}
+    <li>
+      <a class="nav__link" href="mailto:{{ site.email }}">Email</a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,16 @@
+---
+layout: layouts/base.njk
+---
+<div class="row page-head">
+  <div class="row__main">
+    {% if label %}<p class="meta">{{ label }}</p>{% endif %}
+    <h1 class="page-head__title">{{ title }}</h1>
+    {% if lead %}<p class="lead">{{ lead }}</p>{% endif %}
+  </div>
+</div>
+
+<div class="row section" data-reveal>
+  <div class="row__main prose">
+    {{ content | safe }}
+  </div>
+</div>

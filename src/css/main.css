@@ -1,0 +1,780 @@
+/* ==========================================================================
+   karinabrown.xyz
+   Tokens are defined once, here. Reference them; do not hard-code values.
+   ========================================================================== */
+
+/* --- Fonts: self-hosted, Latin subset. No third-party requests. ---------- */
+
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  src: url('/fonts/schibsted-grotesk-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Schibsted Grotesk';
+  src: url('/fonts/schibsted-grotesk-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Newsreader';
+  src: url('/fonts/newsreader-400.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Newsreader';
+  src: url('/fonts/newsreader-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Newsreader';
+  src: url('/fonts/newsreader-400-italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* --- Tokens -------------------------------------------------------------- */
+
+:root {
+  /* Colour */
+  --ground: #F2F3EF;
+  --ground-sunk: #EAECE4;
+  --ink: #23303A;
+  --ink-soft: #5D6B66;
+  --ink-mute: #78857C;
+  --accent: #5B7A58;
+  --accent-deep: #3F5E45;
+  --rule: #D6DACE;
+
+  /* Card tints — home page flip cards only */
+  --card-1: #C6D4B6;
+  --card-2: #9DBAC2;
+  --card-3: #8FAF93;
+  --card-4: #C9D0C2;
+
+  /* Type */
+  --font-display: 'Schibsted Grotesk', system-ui, sans-serif;
+  --font-text: 'Newsreader', Georgia, serif;
+
+  --size-meta: 13px;
+  --size-caption: 15px;
+  --size-body: 17px;
+  --size-lead: 20px;
+  --size-h3: 22px;
+  --size-h2: 28px;
+  --size-h1: 40px;
+  --size-oneliner: 56px;
+
+  /* Layout */
+  --measure: 680px;
+  --margin-col: 140px;
+  --container: 1100px;
+  --gutter: 24px;
+
+  /* Spacing — multiples of 4. Use nothing in between. */
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-96: 96px;
+  --space-128: 128px;
+
+  --radius-control: 4px;
+  --radius-card: 8px;
+}
+
+/* --- Base ---------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: var(--size-body);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: var(--space-48) 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-control);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: var(--space-8);
+  transform: translateY(-200%);
+  background: var(--ground-sunk);
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: var(--size-caption);
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-control);
+  z-index: 20;
+}
+
+.skip-link:focus {
+  transform: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- Typography ---------------------------------------------------------- */
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--size-h1);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: var(--size-h2);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+h3 {
+  font-size: var(--size-h3);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0 0 var(--space-24);
+}
+
+.meta {
+  font-family: var(--font-display);
+  font-size: var(--size-meta);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+  /* --ink-soft, not --ink-mute: 13px metadata needs 4.5:1 (see README) */
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.caption {
+  font-family: var(--font-display);
+  font-size: var(--size-caption);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  margin: var(--space-12) 0 0;
+}
+
+.lead {
+  font-size: var(--size-lead);
+  line-height: 1.6;
+}
+
+/* Links inside body copy keep the serif face. */
+.prose a,
+.link {
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: text-decoration-color 200ms ease-out;
+}
+
+.prose a:hover,
+.link:hover {
+  text-decoration-color: var(--accent-deep);
+}
+
+.prose > *:last-child {
+  margin-bottom: 0;
+}
+
+.prose h3 {
+  margin: var(--space-48) 0 var(--space-12);
+}
+
+.prose ul,
+.prose ol {
+  margin: 0 0 var(--space-24);
+  padding-left: var(--space-24);
+}
+
+.prose li {
+  margin-bottom: var(--space-8);
+}
+
+/* --- Grid ---------------------------------------------------------------- */
+/* One grid across the site: a narrow left margin column plus the text column. */
+
+.row {
+  display: grid;
+  grid-template-columns: var(--margin-col) minmax(0, var(--measure));
+  column-gap: var(--space-48);
+  justify-content: center;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.row__margin {
+  grid-column: 1;
+}
+
+.row__main {
+  grid-column: 2;
+  min-width: 0;
+}
+
+/* Full-bleed: home hero and the flip-card band only. */
+.bleed {
+  width: 100%;
+  padding-inline: var(--gutter);
+}
+
+/* --- Navigation ---------------------------------------------------------- */
+/* Not sticky. It scrolls away. */
+
+.nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: var(--space-32) var(--gutter) 0;
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--space-32);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__link {
+  font-family: var(--font-display);
+  font-size: var(--size-caption);
+  font-weight: 400;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: var(--space-4);
+  transition: border-color 200ms ease-out, color 200ms ease-out;
+}
+
+.nav__link:hover {
+  color: var(--accent-deep);
+  border-bottom-color: var(--accent);
+}
+
+.nav__link[aria-current='page'] {
+  border-bottom-color: var(--accent);
+}
+
+.nav__toggle {
+  display: none;
+  position: relative;
+  z-index: 12;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  margin-right: -10px;
+  background: none;
+  border: 0;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+}
+
+.nav__toggle-bar {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  margin: 5px auto;
+  background: var(--ink);
+  transition: transform 200ms ease-out, opacity 200ms ease-out;
+}
+
+@media (max-width: 899px) {
+  .nav {
+    padding-top: var(--space-24);
+  }
+
+  .nav__toggle {
+    display: block;
+  }
+
+  .nav__links {
+    position: fixed;
+    inset: 0 0 0 auto;
+    width: min(340px, 82vw);
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-24);
+    background: var(--ground-sunk);
+    padding: var(--space-96) var(--space-32) var(--space-48);
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 300ms ease-out, visibility 300ms ease-out;
+    z-index: 10;
+  }
+
+  .nav__link {
+    font-size: var(--size-h3);
+    font-weight: 500;
+  }
+
+  .nav.is-open .nav__links {
+    transform: translateX(0);
+    visibility: visible;
+  }
+
+  .nav.is-open .nav__toggle-bar:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+
+  .nav.is-open .nav__toggle-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .nav.is-open .nav__toggle-bar:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+}
+
+/* --- Footer -------------------------------------------------------------- */
+
+.footer {
+  margin-top: var(--space-128);
+  border-top: 1px solid var(--rule);
+  padding: var(--space-32) var(--gutter) var(--space-48);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-24);
+  max-width: var(--container);
+  margin-inline: auto;
+  font-family: var(--font-display);
+  font-size: var(--size-meta);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft);
+}
+
+.footer a {
+  color: var(--ink-soft);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 2px;
+  transition: color 200ms ease-out, border-color 200ms ease-out;
+}
+
+.footer a:hover {
+  color: var(--accent-deep);
+  border-bottom-color: var(--accent);
+}
+
+.footer__year {
+  margin-left: auto;
+}
+
+/* --- Home ---------------------------------------------------------------- */
+
+.hero {
+  padding-top: var(--space-128);
+  padding-bottom: var(--space-128);
+}
+
+.hero__inner {
+  max-width: var(--container);
+  margin-inline: auto;
+}
+
+.hero__line {
+  font-family: var(--font-display);
+  font-size: var(--size-oneliner);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  max-width: 16ch;
+  margin: 0;
+  text-wrap: balance;
+}
+
+/* --- Flip cards ---------------------------------------------------------- */
+/* The one thing on the site that moves on interaction. */
+
+.cards {
+  padding-bottom: var(--space-64);
+}
+
+.cards__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-16);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  display: block;
+  height: 260px;
+  perspective: 1200px;
+  text-decoration: none;
+  border-radius: var(--radius-card);
+}
+
+.card__inner {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 400ms ease-out;
+}
+
+.card:hover .card__inner,
+.card:focus-visible .card__inner {
+  transform: rotateY(180deg);
+}
+
+.card__face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-24);
+  border-radius: var(--radius-card);
+  backface-visibility: hidden;
+  font-family: var(--font-display);
+}
+
+.card__face--front {
+  background: var(--card-tint);
+  color: var(--ink);
+}
+
+.card__face--back {
+  background: var(--accent-deep);
+  color: var(--ground);
+  transform: rotateY(180deg);
+}
+
+.card__title {
+  font-size: var(--size-h3);
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.card__desc {
+  font-size: var(--size-caption);
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* Kept in the accessibility tree on desktop, revealed in the static treatment. */
+.card__desc--static {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.card--1 { --card-tint: var(--card-1); }
+.card--2 { --card-tint: var(--card-2); }
+.card--3 { --card-tint: var(--card-3); }
+.card--4 { --card-tint: var(--card-4); }
+
+/* The static treatment: mobile, and anyone who asked for less motion.
+   Not a fallback — it is the design at this size. */
+@media (max-width: 899px), (prefers-reduced-motion: reduce) {
+  .cards__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card {
+    height: auto;
+    perspective: none;
+  }
+
+  .card__inner {
+    transform: none;
+    transition: none;
+  }
+
+  .card__face {
+    position: static;
+    justify-content: flex-start;
+    gap: var(--space-12);
+    min-height: 160px;
+  }
+
+  .card__face--back {
+    display: none;
+  }
+
+  .card__desc--static {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+}
+
+/* --- Page furniture ------------------------------------------------------ */
+
+.page-head {
+  padding-top: var(--space-96);
+  padding-bottom: var(--space-48);
+}
+
+.page-head__title {
+  margin-bottom: var(--space-24);
+}
+
+.section {
+  padding-block: var(--space-48);
+}
+
+.band--sunk {
+  background: var(--ground-sunk);
+  padding-block: var(--space-64);
+}
+
+.chapter {
+  padding-block: var(--space-48);
+}
+
+.chapter__heading {
+  margin-bottom: var(--space-24);
+}
+
+/* Contact: the mailto sits at h2 size. */
+.contact-link {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--size-h2);
+  font-weight: 500;
+  line-height: 1.25;
+  color: var(--accent-deep);
+  text-decoration: underline;
+  text-decoration-color: var(--accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  transition: text-decoration-color 200ms ease-out;
+  margin-bottom: var(--space-32);
+}
+
+.contact-link:hover {
+  text-decoration-color: var(--accent-deep);
+}
+
+/* --- About photograph ---------------------------------------------------- */
+/* Roughly half the column, breaking left into the margin column. */
+
+.figure-break {
+  float: left;
+  width: calc(50% + var(--margin-col) + var(--space-48));
+  margin: var(--space-8) var(--space-32) var(--space-24)
+    calc(-1 * (var(--margin-col) + var(--space-48)));
+}
+
+.figure-break img {
+  border-radius: var(--radius-control);
+}
+
+/* --- Project index ------------------------------------------------------- */
+
+.project-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.project-list li {
+  border-top: 1px solid var(--rule);
+  padding-block: var(--space-24);
+}
+
+.project-list li:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-list__link {
+  font-family: var(--font-display);
+  font-size: var(--size-h3);
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 200ms ease-out, border-color 200ms ease-out;
+}
+
+.project-list__link:hover {
+  color: var(--accent-deep);
+  border-bottom-color: var(--accent);
+}
+
+.project-list__desc {
+  margin: var(--space-8) 0 0;
+}
+
+/* --- Motion -------------------------------------------------------------- */
+/* Applied by JS only when motion is welcome, so no-JS shows everything. */
+
+.js-motion [data-reveal] {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.js-motion [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Breakpoints --------------------------------------------------------- */
+
+@media (max-width: 1199px) {
+  .hero {
+    padding-top: var(--space-96);
+    padding-bottom: var(--space-96);
+  }
+}
+
+@media (max-width: 899px) {
+  :root {
+    --size-h1: 30px;
+    --size-h2: 24px;
+    --size-oneliner: 32px;
+  }
+
+  .row {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: calc(var(--measure) + var(--gutter) * 2);
+  }
+
+  /* The margin column collapses; its content moves inline above its section. */
+  .row__margin,
+  .row__main {
+    grid-column: 1;
+  }
+
+  .row__margin {
+    margin-bottom: var(--space-12);
+  }
+
+  .hero {
+    padding-top: var(--space-64);
+    padding-bottom: var(--space-64);
+  }
+
+  .hero__line {
+    max-width: 20ch;
+  }
+
+  .hero__inner,
+  .cards__grid {
+    max-width: calc(var(--measure) + var(--gutter) * 2);
+    margin-inline: auto;
+  }
+
+  .page-head {
+    padding-top: var(--space-64);
+    padding-bottom: var(--space-32);
+  }
+
+  .figure-break {
+    float: none;
+    width: 100%;
+    margin: 0 0 var(--space-24);
+  }
+
+  .footer {
+    margin-top: var(--space-96);
+  }
+}
+
+@media (max-width: 639px) {
+  .card__face {
+    padding: var(--space-16);
+  }
+
+  .footer__inner {
+    gap: var(--space-12);
+  }
+
+  .footer__year {
+    margin-left: 0;
+    width: 100%;
+  }
+}
