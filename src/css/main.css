@@ -518,12 +518,16 @@ p {
   padding-bottom: var(--space-64);
 }
 
+/* Held to --container so the band lines up with the one-liner above it,
+   rather than running the full width of the viewport. */
 .cards__grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-16);
+  max-width: var(--container);
+  margin-inline: auto;
   list-style: none;
-  margin: 0;
+  margin-block: 0;
   padding: 0;
 }
 
