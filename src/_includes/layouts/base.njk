@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="en">
+{# data-theme is set on the home page only, so the invert has something to
+   transition from on the very first click. #}
+<html lang="en"{% if page.url == "/" %} data-theme="light"{% endif %}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -1,11 +1,26 @@
+{% set mark %}
+  {% if logoSvg %}
+    {{ logoSvg | safe }}
+  {% else %}
+    <span class="nav__home-text">{{ site.title }}</span>
+  {% endif %}
+{% endset %}
+
 <nav class="nav" data-nav aria-label="Primary">
-  <a class="nav__home" href="/" aria-label="{{ site.title }} — home">
-    {% if logoSvg %}
-      {{ logoSvg | safe }}
-    {% else %}
-      <span class="nav__home-text">{{ site.title }}</span>
-    {% endif %}
-  </a>
+  {% if page.url == "/" %}
+    {# Already home, so the mark has nothing to link to. It inverts the page
+       instead — a real button with a real name, not a link that does not
+       navigate. #}
+    <button
+      class="nav__home"
+      type="button"
+      data-theme-toggle
+      aria-pressed="false"
+      aria-label="Dark theme"
+    >{{ mark | safe }}</button>
+  {% else %}
+    <a class="nav__home" href="/" aria-label="{{ site.title }} — home">{{ mark | safe }}</a>
+  {% endif %}
 
   <button
     class="nav__toggle"

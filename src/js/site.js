@@ -33,6 +33,21 @@
     });
   }
 
+  /* --- Home page: the mark inverts the page ----------------------------- */
+  /* Deliberately not persisted. Navigating away returns to the light design,
+     which is the one the site is designed in. */
+
+  var themeToggle = document.querySelector('[data-theme-toggle]');
+
+  if (themeToggle) {
+    themeToggle.addEventListener('click', function () {
+      var root = document.documentElement;
+      var dark = root.getAttribute('data-theme') === 'dark';
+      root.setAttribute('data-theme', dark ? 'light' : 'dark');
+      themeToggle.setAttribute('aria-pressed', String(!dark));
+    });
+  }
+
   /* --- Fade and rise on scroll, once ------------------------------------ */
 
   var targets = document.querySelectorAll('[data-reveal]');

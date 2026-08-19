@@ -53,6 +53,11 @@
      on the second full stop, to tie it to the Current projects card. */
   --accent-cool: #768C92;
 
+  /* The flip-card reverse is pinned rather than derived from --accent-deep,
+     so the signature element looks the same whichever way the page is set. */
+  --card-back: #3F5E45;
+  --card-back-ink: #F2F3EF;
+
   /* Card tints — home page flip cards only */
   --card-1: #C6D4B6;
   --card-2: #9DBAC2;
@@ -93,6 +98,31 @@
 
   --radius-control: 4px;
   --radius-card: 8px;
+}
+
+/* Home-page invert, reached by clicking the mark. Every value re-measured
+   against the dark ground: text 12.11:1, --ink-soft 5.90:1, --accent 6.40:1
+   (the light sage from the logo handoff), --accent-cool 6.58:1 — which is
+   --card-2 raw, the tint that could not carry text on the light ground. */
+:root[data-theme='dark'] {
+  --ground: #23303A;
+  --ink: #F2F3EF;
+  --ink-soft: #A3AEA8;
+  --ink-mute: #A3AEA8;
+  --accent: #A8B7A1;
+  --accent-deep: #C6D4B6;
+  --accent-cool: #9DBAC2;
+  --rule: #414E57;
+}
+
+/* Colour carries across; .card__inner is left alone so its 400ms flip is not
+   overwritten. Scoped to [data-theme], which only the home page carries. */
+:root[data-theme] body,
+:root[data-theme] body *:not(.card__inner) {
+  transition-property: background-color, color, border-color, fill,
+    text-decoration-color;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
 }
 
 /* --- Base ---------------------------------------------------------------- */
@@ -300,9 +330,14 @@ p {
 .nav__home {
   display: inline-flex;
   align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
   color: var(--accent);
   text-decoration: none;
   border-radius: var(--radius-control);
+  cursor: pointer;
   transition: color 180ms ease-out;
 }
 
@@ -573,8 +608,8 @@ p {
 }
 
 .card__face--back {
-  background: var(--accent-deep);
-  color: var(--ground);
+  background: var(--card-back);
+  color: var(--card-back-ink);
   transform: rotateY(180deg);
 }
 

@@ -113,6 +113,33 @@ When overriding the flip, reset the transform through the same `:hover` and
 on specificity, which leaves the card mid-rotation with its back face
 `display: none` — it vanishes on hover instead of staying put.
 
+## The home page invert
+
+Clicking the KB mark on the home page inverts it: dark ground, light text.
+Deliberately undiscoverable — an easter egg, not a feature. Revisit after
+launch, when the options are a real `prefers-color-scheme` default plus a
+small override in the footer.
+
+Three things make it work:
+
+- On `/` the mark renders as a `<button>` with `aria-label="Dark theme"` and
+  `aria-pressed`, not as a link. A link that does not navigate lies to
+  assistive tech. On every other page it is still a link home.
+- `<html>` carries `data-theme="light"` on the home page only, so the colour
+  transition has something to move from on the very first click.
+- Nothing is persisted. Navigating away returns to the light design, which
+  is the one the site is designed in. Persisting would mean a dark palette
+  for all nine pages plus an inline head script to stop the wrong theme
+  flashing on load.
+
+`--card-back` and `--card-back-ink` are pinned rather than derived from
+`--accent-deep`, so the flip-card reverse looks the same in both directions.
+
+Every dark value was measured against the dark ground: text 12.11:1,
+`--ink-soft` 5.90:1, `--accent` 6.40:1 (the light sage from the logo
+handoff), `--accent-cool` 6.58:1 — which is `--card-2` raw, the tint that
+could not carry text on the light ground.
+
 ## One addition to the palette
 
 `--accent-cool: #768C92` is the only colour on the site that is not in the
