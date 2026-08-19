@@ -284,8 +284,6 @@ p {
   align-items: center;
   gap: var(--space-24);
   min-height: var(--nav-h);
-  max-width: var(--container);
-  margin-inline: auto;
   padding: var(--space-16) var(--gutter) 0;
 }
 
@@ -309,7 +307,7 @@ p {
 .nav__home svg {
   display: block;
   width: auto;
-  height: 36px;
+  height: 44px;
 }
 
 .nav__home-text {
@@ -477,10 +475,17 @@ p {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  max-width: 22ch;
   margin: 0;
+}
+
+.hero__line-a,
+.hero__line-b {
+  display: block;
   text-wrap: pretty;
 }
+
+/* The greeting takes a line of its own, then the sentence wraps to three
+   against --container. That keeps it to four lines with nothing hanging. */
 
 /* Scroll cue. Static — the flip cards are the only thing on the site that
    moves on interaction. */
@@ -811,10 +816,6 @@ p {
 
   .row__margin {
     margin-bottom: var(--space-12);
-  }
-
-  .hero__line {
-    max-width: 20ch;
   }
 
   .hero__inner,
