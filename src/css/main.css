@@ -704,9 +704,10 @@ p {
 
 /* --- Page furniture ------------------------------------------------------ */
 
-/* Page titles borrow the home one-liner's treatment: same face, same size,
-   and set at --container so they line up with the one-liner and the footer
-   rather than with the text column they sit above. */
+/* Page titles borrow the home one-liner's size, and start at the left edge
+   of the grid — flush with the margin column, so they line up with the date
+   ranges on Experience rather than with the prose they sit above. Widths
+   mirror .row exactly at both breakpoints; see the checks in README. */
 .page-head {
   padding-top: var(--space-96);
   padding-bottom: var(--space-48);
@@ -714,7 +715,7 @@ p {
 
 .page-head__inner {
   width: 100%;
-  max-width: var(--container);
+  max-width: calc(var(--margin-col) + var(--space-48) + var(--measure));
   margin-inline: auto;
 }
 
@@ -932,6 +933,12 @@ p {
   .page-head {
     padding-top: var(--space-64);
     padding-bottom: var(--space-32);
+  }
+
+  /* Below 900px .row collapses to a single column capped at --measure, so
+     the head has to follow or the title drifts off the text's left edge. */
+  .page-head__inner {
+    max-width: var(--measure);
   }
 
   .figure-break {

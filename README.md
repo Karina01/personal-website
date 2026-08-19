@@ -129,6 +129,19 @@ When overriding the flip, reset the transform through the same `:hover` and
 on specificity, which leaves the card mid-rotation with its back face
 `display: none` — it vanishes on hover instead of staying put.
 
+## Page titles
+
+Titles take `--size-oneliner` — the same token as the home one-liner, so the
+two cannot drift apart — and start at the left edge of the grid, flush with
+the margin column. On Experience that puts the title in line with the date
+ranges below it.
+
+`.page-head__inner` mirrors `.row`'s width at both breakpoints: the grid
+block (`--margin-col` + 48 + `--measure`) above 900px, and `--measure` below,
+where `.row` collapses to a single column. Verified flush with the date
+ranges at 1600, 1440, 1280, 1024, 950, 899, 800, 640 and 375 — the widths
+either side of the breakpoint are the ones that catch a mismatch.
+
 ## The home page invert
 
 Clicking the KB mark on the home page inverts it: dark ground, light text.
