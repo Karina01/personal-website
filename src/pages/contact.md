@@ -4,8 +4,8 @@ title: Contact
 templateEngineOverride: njk
 description: Get in touch with Karina Brown.
 ---
-<div class="row page-head">
-  <div class="row__main">
+<div class="page-head bleed">
+  <div class="page-head__inner">
     <h1 class="page-head__title">Contact</h1>
   </div>
 </div>

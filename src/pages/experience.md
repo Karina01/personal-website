@@ -28,8 +28,8 @@ organisations:
   chapter heading. Everything between the tags is ordinary markdown.
 #}
 
-<div class="row page-head">
-  <div class="row__main">
+<div class="page-head bleed">
+  <div class="page-head__inner">
     <h1 class="page-head__title">Experience</h1>
   </div>
 </div>

@@ -3,11 +3,11 @@ layout: layouts/base.njk
 ---
 {# Stubbed for newsletter posts. Not linked from anywhere yet. #}
 <article>
-  <div class="row page-head">
-    <div class="row__main">
+  <div class="page-head bleed">
+    <div class="page-head__inner">
       <p class="meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></p>
       <h1 class="page-head__title">{{ title }}</h1>
-      {% if lead %}<p class="lead">{{ lead }}</p>{% endif %}
+      {% if lead %}<p class="lead page-head__lead">{{ lead }}</p>{% endif %}
     </div>
   </div>
   <div class="row section" data-reveal>
