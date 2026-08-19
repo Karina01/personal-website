@@ -58,6 +58,12 @@ for. It renders 36px tall; the 100 x 139 aspect means only the height is
 set, so it cannot distort. The link carries the accessible name and the SVG
 is `aria-hidden`, so it is announced once.
 
+From 1244px up the mark is fixed in the corner and stays put while the page
+scrolls; the nav links still scroll away, so the brief's "nav is not sticky"
+holds for everything except the mark. 1244px is where the container first has
+side margin to spare — below it, content sits at the gutter and a fixed mark
+would land on the text. The derivation is in a comment above the media query.
+
 The handoff specified `#8B9C85` at rest darkening to `#75866F`. Both are
 outside the brief's closed palette, and `#8B9C85` measures 2.62:1 against
 `--ground` — below the 3:1 floor for non-text. The mark therefore uses

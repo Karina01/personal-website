@@ -800,6 +800,26 @@ p {
   }
 }
 
+/* The mark holds the top-left corner while the page scrolls; the links still
+   scroll away. Fixed only from 1244px up, which is where the container first
+   has side margin to spare: below it, content sits at the gutter and a fixed
+   mark would land on top of the text.
+     content left = 24 + (V - 48 - 1100) / 2
+     mark ends at 24 + 44 * 100/139 = 55.7, plus 16px clearance = 71.7
+     71.7 <= 24 + (V - 1148) / 2  ->  V >= 1244 */
+@media (min-width: 1244px) {
+  .nav {
+    justify-content: flex-end;
+  }
+
+  .nav__home {
+    position: fixed;
+    top: var(--space-16);
+    left: var(--gutter);
+    z-index: 12;
+  }
+}
+
 /* --- Breakpoints --------------------------------------------------------- */
 
 @media (max-width: 1199px) {
