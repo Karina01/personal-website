@@ -40,8 +40,10 @@ Prose, in markdown.
 
 ### Adding a project
 
-Drop a markdown file in `src/projects/` with `title`, `order` and `summary`
-in the front matter. It gets its own page and appears in the list.
+Drop a markdown file in `src/projects/` with `title` and `order` in the front
+matter. It gets its own page and appears on `/current-projects/`, which
+renders each project's own body — so the text lives in one file only and the
+index cannot drift out of step with the subpage.
 
 ### Adding the About photograph
 
