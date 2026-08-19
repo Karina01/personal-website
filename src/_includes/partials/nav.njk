@@ -1,4 +1,12 @@
 <nav class="nav" data-nav aria-label="Primary">
+  <a class="nav__home" href="/" aria-label="{{ site.title }} — home">
+    {% if logoSvg %}
+      {{ logoSvg | safe }}
+    {% else %}
+      <span class="nav__home-text">{{ site.title }}</span>
+    {% endif %}
+  </a>
+
   <button
     class="nav__toggle"
     type="button"
@@ -11,6 +19,7 @@
     <span class="nav__toggle-bar"></span>
     <span class="nav__toggle-bar"></span>
   </button>
+
   <ul class="nav__links" id="nav-links">
     {% for item in nav %}
       <li>
@@ -21,8 +30,5 @@
         >{{ item.label }}</a>
       </li>
     {% endfor %}
-    <li>
-      <a class="nav__link" href="mailto:{{ site.email }}">Email</a>
-    </li>
   </ul>
 </nav>

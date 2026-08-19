@@ -2,16 +2,21 @@
 layout: layouts/base.njk
 permalink: /
 title: Karina Brown
-description: Karina Brown takes vague ideas and makes them real — in big companies and early ventures.
+description: Karina Brown takes vague ideas and makes them real – in big companies and early ventures.
 ---
 <section class="hero bleed">
   <div class="hero__inner">
-    <h1 class="hero__line">Hi, I’m Karina. I take vague ideas and make them real — in big companies and early ventures.</h1>
-    <p class="hero__now">Now I’m taking time to shape what’s next: writing, building, seeking collaborators.</p>
+    <h1 class="hero__line">Hi, I’m Karina. I take vague ideas and make them real – in big companies and early ventures.</h1>
   </div>
+  <a class="hero__scroll" href="#cards">
+    <span class="visually-hidden">Scroll to sections</span>
+    <svg class="hero__scroll-arrow" viewBox="0 0 16 28" aria-hidden="true" focusable="false">
+      <path d="M8 0 V25 M1 18 L8 25 L15 18" fill="none" stroke="currentColor" stroke-width="1.5" />
+    </svg>
+  </a>
 </section>
 
-<section class="cards bleed" aria-labelledby="cards-heading" data-reveal>
+<section class="cards bleed" id="cards" aria-labelledby="cards-heading" data-reveal>
   <h2 class="visually-hidden" id="cards-heading">Sections</h2>
   <ul class="cards__grid">
     {% for card in cards %}

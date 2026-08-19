@@ -45,6 +45,13 @@ matter. It gets its own page and appears on `/current-projects/`, which
 renders each project's own body — so the text lives in one file only and the
 index cannot drift out of step with the subpage.
 
+### The home mark
+
+The top-left home link inlines `src/images/logo.svg` at build time, so it can
+take `currentColor` and costs no extra request. Until that file exists the
+link falls back to the site title as text. Drop the SVG in and rebuild —
+no template change needed. It renders at 32px tall, width auto.
+
 ### Adding the About photograph
 
 Fill in the `photo` block in `src/pages/about.md` front matter (uncomment the

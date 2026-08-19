@@ -63,13 +63,14 @@
   --size-h3: 22px;
   --size-h2: 28px;
   --size-h1: 40px;
-  --size-oneliner: 56px;
+  --size-oneliner: 76px;
 
   /* Layout */
   --measure: 680px;
   --margin-col: 140px;
   --container: 1100px;
   --gutter: 24px;
+  --nav-h: 64px; /* nav block height, so the hero can fill the rest */
 
   /* Spacing — multiples of 4. Use nothing in between. */
   --space-4: 4px;
@@ -279,11 +280,39 @@ p {
 
 .nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
+  gap: var(--space-24);
+  min-height: var(--nav-h);
   max-width: var(--container);
   margin-inline: auto;
-  padding: var(--space-32) var(--gutter) 0;
+  padding: var(--space-16) var(--gutter) 0;
+}
+
+.nav__home {
+  display: inline-flex;
+  align-items: center;
+  color: var(--ink);
+  text-decoration: none;
+  border-radius: var(--radius-control);
+  transition: color 200ms ease-out;
+}
+
+.nav__home:hover {
+  color: var(--accent-deep);
+}
+
+.nav__home svg {
+  display: block;
+  width: auto;
+  height: 32px;
+}
+
+.nav__home-text {
+  font-family: var(--font-display);
+  font-size: var(--size-caption);
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 
 .nav__links {
@@ -425,11 +454,15 @@ p {
 /* --- Home ---------------------------------------------------------------- */
 
 .hero {
-  padding-top: var(--space-128);
-  padding-bottom: var(--space-128);
+  min-height: calc(100svh - var(--nav-h));
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  padding-bottom: var(--space-32);
 }
 
 .hero__inner {
+  width: 100%;
   max-width: var(--container);
   margin-inline: auto;
 }
@@ -439,21 +472,34 @@ p {
   font-size: var(--size-oneliner);
   font-weight: 400;
   line-height: 1.15;
-  letter-spacing: -0.01em;
-  max-width: 26ch;
+  letter-spacing: -0.02em;
+  max-width: 22ch;
   margin: 0;
   text-wrap: pretty;
 }
 
-.hero__now {
-  font-family: var(--font-display);
-  font-size: var(--size-lead);
-  font-weight: 400;
-  line-height: 1.5;
+/* Scroll cue. Static — the flip cards are the only thing on the site that
+   moves on interaction. */
+.hero__scroll {
+  justify-self: start;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-block: var(--space-16);
   color: var(--ink-soft);
-  max-width: 34ch;
-  margin: var(--space-32) 0 0;
-  text-wrap: balance;
+  border-radius: var(--radius-control);
+  transition: color 200ms ease-out;
+}
+
+.hero__scroll:hover {
+  color: var(--accent-deep);
+}
+
+.hero__scroll-arrow {
+  width: 16px;
+  height: 28px;
 }
 
 /* --- Flip cards ---------------------------------------------------------- */
@@ -735,9 +781,8 @@ p {
 /* --- Breakpoints --------------------------------------------------------- */
 
 @media (max-width: 1199px) {
-  .hero {
-    padding-top: var(--space-96);
-    padding-bottom: var(--space-96);
+  :root {
+    --size-oneliner: 60px;
   }
 }
 
@@ -746,6 +791,7 @@ p {
     --size-h1: 30px;
     --size-h2: 24px;
     --size-oneliner: 32px;
+    --nav-h: 68px;
   }
 
   .row {
@@ -763,16 +809,12 @@ p {
     margin-bottom: var(--space-12);
   }
 
-  .hero {
-    padding-top: var(--space-64);
-    padding-bottom: var(--space-64);
-  }
-
   .hero__line {
     max-width: 20ch;
   }
 
   .hero__inner,
+  .hero__scroll,
   .cards__grid {
     max-width: calc(var(--measure) + var(--gutter) * 2);
     margin-inline: auto;

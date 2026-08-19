@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import markdownIt from "markdown-it";
 
 const md = markdownIt({ html: true, typographer: true });
@@ -31,6 +32,18 @@ export default function (eleventyConfig) {
       .getFilteredByTag("projects")
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
   );
+
+  // The home mark in the top-left. Inlined so it can take currentColor and
+  // needs no extra request. Falls back to the site title until the file lands.
+  eleventyConfig.addGlobalData("logoSvg", () => {
+    const path = "src/images/logo.svg";
+    if (!fs.existsSync(path)) return null;
+    return fs
+      .readFileSync(path, "utf8")
+      .replace(/<\?xml[\s\S]*?\?>/, "")
+      .replace(/<!--[\s\S]*?-->/g, "")
+      .trim();
+  });
 
   eleventyConfig.addFilter("year", () => String(new Date().getFullYear()));
 
