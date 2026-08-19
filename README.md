@@ -73,10 +73,26 @@ the handoff's structure. To use the original sages instead, set `color` on
 
 ### Adding the About photograph
 
-Fill in the `photo` block in `src/pages/about.md` front matter (uncomment the
-keys). Until `photo.src` is set, no `<img>` is emitted. Set `width` and
-`height` to the intrinsic pixel size of the largest file so the browser can
-reserve the space.
+Put the files in `src/images/`, then fill in the `photo` block in
+`src/pages/about.md` front matter (uncomment the keys). Until `photo.src` is
+set, no `<img>` is emitted, so a half-finished state cannot ship.
+
+The figure renders 528px wide on desktop, breaking 188px left into the
+margin column with body copy alongside. Below 900px it goes full width — up
+to 680px — with the copy beneath. So the largest it is ever displayed is
+680px, and the widest file worth shipping is 1360px for 2x screens.
+
+Export widths 528, 680, 1056 and 1360 and list them in `srcset`; `sizes` is
+already set to match the layout. Set `width` and `height` to the intrinsic
+pixel size of the largest file so the browser reserves the space and the
+page does not jump.
+
+The photo sits above the fold at every size, so it is deliberately not
+lazy-loaded — it is the page's largest paint. Keep the largest file under
+about 150KB.
+
+`photo.alt` is required and should describe the photograph, not repeat the
+page title. `photo.caption` is optional and renders underneath at 15px.
 
 ## Two deviations from the brief, both forced by the contrast floor
 
