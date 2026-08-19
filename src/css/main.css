@@ -487,6 +487,17 @@ p {
 /* The greeting takes a line of its own, then the sentence wraps to three
    against --container. That keeps it to four lines with nothing hanging. */
 
+/* The two full stops carry the only colour above the fold. Both sages —
+   every card tint measures under 2.2:1 as text on --ground, so none of them
+   can hold a glyph that has to be seen to be read. */
+.stop--a {
+  color: var(--accent);
+}
+
+.stop--b {
+  color: var(--accent-deep);
+}
+
 /* Scroll cue. Static — the flip cards are the only thing on the site that
    moves on interaction. */
 .hero__scroll {
