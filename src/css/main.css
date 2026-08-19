@@ -289,23 +289,27 @@ p {
   padding: var(--space-16) var(--gutter) 0;
 }
 
+/* The KB mark. Inlined at build time, so the fill follows `color` and can
+   darken on hover and focus rather than fading. Aspect is 100 x 139, so only
+   the height is set — width follows, and the mark cannot distort. */
 .nav__home {
   display: inline-flex;
   align-items: center;
-  color: var(--ink);
+  color: var(--accent);
   text-decoration: none;
   border-radius: var(--radius-control);
-  transition: color 200ms ease-out;
+  transition: color 180ms ease-out;
 }
 
-.nav__home:hover {
+.nav__home:hover,
+.nav__home:focus-visible {
   color: var(--accent-deep);
 }
 
 .nav__home svg {
   display: block;
   width: auto;
-  height: 32px;
+  height: 36px;
 }
 
 .nav__home-text {

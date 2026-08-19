@@ -47,10 +47,23 @@ index cannot drift out of step with the subpage.
 
 ### The home mark
 
-The top-left home link inlines `src/images/logo.svg` at build time, so it can
-take `currentColor` and costs no extra request. Until that file exists the
-link falls back to the site title as text. Drop the SVG in and rebuild —
-no template change needed. It renders at 32px tall, width auto.
+`src/images/logo.svg` is the KB mark from the Claude Design project
+`fcd054ce-d150-4e93-99b0-1d17634e1f38` (variant 3a, the traced sketch —
+a single closed contour, no counters). The path data is byte-identical to
+that project's `kb-logo.svg`.
+
+The nav inlines it at build time, so its fill follows `color` and darkens on
+hover and focus rather than fading — which is what the handoff note asked
+for. It renders 36px tall; the 100 x 139 aspect means only the height is
+set, so it cannot distort. The link carries the accessible name and the SVG
+is `aria-hidden`, so it is announced once.
+
+The handoff specified `#8B9C85` at rest darkening to `#75866F`. Both are
+outside the brief's closed palette, and `#8B9C85` measures 2.62:1 against
+`--ground` — below the 3:1 floor for non-text. The mark therefore uses
+`--accent` at rest (4.31:1) and `--accent-deep` on hover (6.50:1), keeping
+the handoff's structure. To use the original sages instead, set `color` on
+`.nav__home` and its hover state in `main.css`.
 
 ### Adding the About photograph
 
