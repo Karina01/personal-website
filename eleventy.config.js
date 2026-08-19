@@ -3,6 +3,10 @@ import markdownIt from "markdown-it";
 const md = markdownIt({ html: true, typographer: true });
 
 export default function (eleventyConfig) {
+  // Match the shortcode's markdown instance, so curly quotes and dashes are
+  // consistent across pages rendered by Eleventy and by the chapter shortcode.
+  eleventyConfig.amendLibrary("md", (lib) => lib.set({ typographer: true }));
+
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
   eleventyConfig.addPassthroughCopy({ "src/fonts": "fonts" });

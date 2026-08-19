@@ -440,8 +440,19 @@ p {
   font-weight: 400;
   line-height: 1.15;
   letter-spacing: -0.01em;
-  max-width: 16ch;
+  max-width: 26ch;
   margin: 0;
+  text-wrap: pretty;
+}
+
+.hero__now {
+  font-family: var(--font-display);
+  font-size: var(--size-lead);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 34ch;
+  margin: var(--space-32) 0 0;
   text-wrap: balance;
 }
 
@@ -633,49 +644,67 @@ p {
   border-radius: var(--radius-control);
 }
 
-/* --- Project index ------------------------------------------------------- */
-/* Selectors are scoped under .prose to outrank the body-copy link styling,
-   since the layout renders page content inside .prose. */
+/* --- Organisations list --------------------------------------------------- */
+/* A quiet colophon, not a logo wall and not a CV. Names only. */
 
-.prose .project-list,
-.project-list {
+.orgs__label {
+  margin-bottom: var(--space-24);
+}
+
+.orgs {
+  columns: 3;
+  column-gap: var(--space-48);
   list-style: none;
   margin: 0;
   padding: 0;
+  font-family: var(--font-display);
+  font-size: var(--size-caption);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink-soft);
 }
 
-.prose .project-list li,
-.project-list li {
+.orgs li {
+  break-inside: avoid;
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 639px) {
+  .orgs {
+    columns: 2;
+    column-gap: var(--space-24);
+  }
+}
+
+/* --- Project index ------------------------------------------------------- */
+
+.project {
   border-top: 1px solid var(--rule);
-  padding-block: var(--space-24);
-  margin-bottom: 0;
+  padding-block: var(--space-32);
 }
 
-.project-list li:last-child {
+.project:last-child {
   border-bottom: 1px solid var(--rule);
 }
 
-.prose .project-list__link,
-.project-list__link {
-  font-family: var(--font-display);
-  font-size: var(--size-h3);
-  font-weight: 500;
+.project__title {
+  margin-bottom: var(--space-12);
+}
+
+/* Scoped under .prose to outrank the body-copy link styling, since the
+   layout renders page content inside .prose. */
+.prose .project__link,
+.project__link {
   color: var(--ink);
   text-decoration: none;
-  text-decoration-color: transparent;
   border-bottom: 1px solid transparent;
   transition: color 200ms ease-out, border-color 200ms ease-out;
 }
 
-.prose .project-list__link:hover,
-.project-list__link:hover {
+.prose .project__link:hover,
+.project__link:hover {
   color: var(--accent-deep);
   border-bottom-color: var(--accent);
-  text-decoration-color: transparent;
-}
-
-.project-list__desc {
-  margin: var(--space-8) 0 0;
 }
 
 /* --- Motion -------------------------------------------------------------- */

@@ -11,6 +11,20 @@ layout: layouts/base.njk
 
 <div class="row section" data-reveal>
   <div class="row__main prose">
+    {% if photo.src %}
+      <figure class="figure-break">
+        <img
+          src="{{ photo.src }}"
+          {% if photo.srcset %}srcset="{{ photo.srcset }}" sizes="(max-width: 899px) 100vw, 400px"{% endif %}
+          width="{{ photo.width }}"
+          height="{{ photo.height }}"
+          alt="{{ photo.alt }}"
+          loading="lazy"
+          decoding="async"
+        />
+        {% if photo.caption %}<figcaption class="caption">{{ photo.caption }}</figcaption>{% endif %}
+      </figure>
+    {% endif %}
     {{ content | safe }}
   </div>
 </div>
