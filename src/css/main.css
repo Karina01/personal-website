@@ -423,6 +423,8 @@ p {
 }
 
 /* --- Footer -------------------------------------------------------------- */
+/* Aligned to the viewport gutter, matching the mark in the top-left corner,
+   so the two frame the page. */
 
 .footer {
   margin-top: var(--space-128);
@@ -430,34 +432,13 @@ p {
   padding: var(--space-32) var(--gutter) var(--space-48);
 }
 
-.footer__inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-24);
-  max-width: var(--container);
-  margin-inline: auto;
+.footer__line {
+  margin: 0;
   font-family: var(--font-display);
   font-size: var(--size-meta);
   font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--ink-soft);
-}
-
-.footer a {
-  color: var(--ink-soft);
-  text-decoration: none;
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 2px;
-  transition: color 200ms ease-out, border-color 200ms ease-out;
-}
-
-.footer a:hover {
-  color: var(--accent-deep);
-  border-bottom-color: var(--accent);
-}
-
-.footer__year {
-  margin-left: auto;
 }
 
 /* --- Home ---------------------------------------------------------------- */
@@ -874,14 +855,5 @@ p {
 @media (max-width: 639px) {
   .card__face {
     padding: var(--space-16);
-  }
-
-  .footer__inner {
-    gap: var(--space-12);
-  }
-
-  .footer__year {
-    margin-left: 0;
-    width: 100%;
   }
 }
