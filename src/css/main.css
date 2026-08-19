@@ -605,11 +605,24 @@ p {
 .card--3 { --card-tint: var(--card-3); }
 .card--4 { --card-tint: var(--card-4); }
 
-/* The static treatment: mobile, and anyone who asked for less motion.
-   Not a fallback — it is the design at this size. */
-@media (max-width: 899px), (prefers-reduced-motion: reduce) {
+/* Layout is a question of width: two up once there is no room for four. */
+@media (max-width: 899px) {
   .cards__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Whether the card flips is a question of capability, not width. A narrow
+   desktop window can still hover, so it keeps the flip. A touch device
+   cannot, at any width, so it gets the static face — as does anyone who
+   asked for less motion. Not a fallback; it is the design for those inputs.
+
+   The transform is reset through the same :hover and :focus-visible
+   selectors that set it. A bare .card__inner would lose to them on
+   specificity, leave the card mid-rotation with its back face display:none,
+   and the card would vanish on hover. */
+@media (hover: none), (prefers-reduced-motion: reduce) {
+  .cards__grid {
     grid-auto-rows: 1fr;
   }
 
@@ -618,9 +631,12 @@ p {
     perspective: none;
   }
 
-  .card__inner {
+  .card__inner,
+  .card:hover .card__inner,
+  .card:focus-visible .card__inner {
     transform: none;
     transition: none;
+    transform-style: flat;
   }
 
   .card__face {
@@ -629,6 +645,7 @@ p {
     gap: var(--space-12);
     height: 100%;
     min-height: 150px;
+    backface-visibility: visible;
   }
 
   .card__desc {

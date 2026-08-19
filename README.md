@@ -96,6 +96,23 @@ nav underline, small marks. `--ink-mute` is currently unused.
 Everything else measured clean: `--ink` on all four card tints is 5.6–8.7:1,
 `--ground` on `--accent-deep` (the flip-card reverse) is 6.5:1.
 
+## Flip cards: layout vs capability
+
+Two separate questions, deliberately keyed to different things.
+
+**Layout** is a question of width — four across, two across below 900px.
+
+**Whether the card flips** is a question of input capability, not width:
+`@media (hover: none)` gets the static face, at any width. A narrow desktop
+window can still hover, so it keeps the flip; a phone cannot, so it does not.
+That matches the brief's reasoning ("hover does not exist" on phones) rather
+than its width-based wording.
+
+When overriding the flip, reset the transform through the same `:hover` and
+`:focus-visible` selectors that set it. A bare `.card__inner` loses to them
+on specificity, which leaves the card mid-rotation with its back face
+`display: none` — it vanishes on hover instead of staying put.
+
 ## One addition to the palette
 
 `--accent-cool: #768C92` is the only colour on the site that is not in the
