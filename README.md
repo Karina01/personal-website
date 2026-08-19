@@ -90,6 +90,20 @@ nav underline, small marks. `--ink-mute` is currently unused.
 Everything else measured clean: `--ink` on all four card tints is 5.6–8.7:1,
 `--ground` on `--accent-deep` (the flip-card reverse) is 6.5:1.
 
+## One addition to the palette
+
+`--accent-cool: #617378` is the only colour on the site that is not in the
+brief. It is `--card-2` darkened along its own hue until it can carry text:
+the tint itself measures 1.84:1 against `--ground`, this measures 4.45:1.
+
+It exists because the home one-liner's two full stops are the only colour
+above the fold, and the palette's four passing colours are all sage or
+grey-green — two of them side by side read as tonal, not as two colours.
+Every card tint fails as text (1.4-2.2:1), so none could be used raw.
+
+Scope is deliberately one glyph: the second full stop. If it spreads to
+other elements, that is a palette decision worth making on purpose.
+
 ## Deployment
 
 Pushes to `main` build and deploy via `.github/workflows/deploy.yml`.

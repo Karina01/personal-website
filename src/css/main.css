@@ -46,6 +46,12 @@
   --accent-deep: #3F5E45;
   --rule: #D6DACE;
 
+  /* Deliberate addition to the brief's closed palette. --card-2 darkened
+     along its own hue until it can hold text: the tint itself measures
+     1.84:1 on --ground, this measures 4.45:1. Used only on the second full
+     stop of the home one-liner, to tie it to the Current projects card. */
+  --accent-cool: #617378;
+
   /* Card tints — home page flip cards only */
   --card-1: #C6D4B6;
   --card-2: #9DBAC2;
@@ -487,15 +493,16 @@ p {
 /* The greeting takes a line of its own, then the sentence wraps to three
    against --container. That keeps it to four lines with nothing hanging. */
 
-/* The two full stops carry the only colour above the fold. Both sages —
-   every card tint measures under 2.2:1 as text on --ground, so none of them
-   can hold a glyph that has to be seen to be read. */
+/* The two full stops carry the only colour above the fold: sage, then the
+   cool blue. Card tints cannot be used raw — every one measures under 2.2:1
+   as text on --ground, and a full stop that cannot be seen changes where the
+   sentence appears to end. */
 .stop--a {
   color: var(--accent);
 }
 
 .stop--b {
-  color: var(--accent-deep);
+  color: var(--accent-cool);
 }
 
 /* Scroll cue. Static — the flip cards are the only thing on the site that
