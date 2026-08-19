@@ -48,9 +48,10 @@
 
   /* Deliberate addition to the brief's closed palette. --card-2 darkened
      along its own hue until it can hold text: the tint itself measures
-     1.84:1 on --ground, this measures 4.45:1. Used only on the second full
-     stop of the home one-liner, to tie it to the Current projects card. */
-  --accent-cool: #617378;
+     1.84:1 on --ground, this measures 3.17:1 — above the 3:1 floor for text
+     at this size, and the one-liner is 76px desktop, 32px mobile. Used only
+     on the second full stop, to tie it to the Current projects card. */
+  --accent-cool: #768C92;
 
   /* Card tints — home page flip cards only */
   --card-1: #C6D4B6;

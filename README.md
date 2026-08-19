@@ -92,9 +92,14 @@ Everything else measured clean: `--ink` on all four card tints is 5.6–8.7:1,
 
 ## One addition to the palette
 
-`--accent-cool: #617378` is the only colour on the site that is not in the
+`--accent-cool: #768C92` is the only colour on the site that is not in the
 brief. It is `--card-2` darkened along its own hue until it can carry text:
-the tint itself measures 1.84:1 against `--ground`, this measures 4.45:1.
+the tint itself measures 1.84:1 against `--ground`, this measures 3.17:1.
+
+That clears the 3:1 floor for text at this size and no more, so it is sound
+where it is used and nowhere else. The one-liner sets at 76px on desktop and
+32px on mobile; both are well above the 24px large-text threshold. Do not
+reuse this token at body size, where the floor is 4.5:1.
 
 It exists because the home one-liner's two full stops are the only colour
 above the fold, and the palette's four passing colours are all sage or
