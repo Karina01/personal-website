@@ -29,10 +29,9 @@ organisations:
   - name: "Avis Budget Group"
     logo: /images/avis-budget-group.svg
     scale: 0.712
-  - name: "Virgin Holidays"
-    logo: /images/virgin.png
-    scale: 1.181
-    blend: true
+  - name: "Virgin Atlantic"
+    logo: /images/virgin-atlantic.svg
+    scale: 0.909
   - name: "PiC"
     logo: /images/pic.jpg
     scale: 0.854

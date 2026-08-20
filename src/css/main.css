@@ -862,8 +862,10 @@ strong {
     brightness(0.97) opacity(0.7);
 }
 
-/* A raster logo supplied on a white background: multiply drops the white
-   out against the light ground, so no box shows behind the mark. */
+/* Escape hatch for a logo supplied on a white background rather than
+   transparency: multiply drops the white out against the light ground.
+   Currently unused — every logo on the wall is transparent — but kept,
+   since supplied logo files often are not. Opt in with `blend: true`. */
 .orgs__logo--blend {
   mix-blend-mode: multiply;
 }
