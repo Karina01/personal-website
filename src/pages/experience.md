@@ -30,8 +30,9 @@ organisations:
     logo: /images/avis-budget-group.svg
     scale: 0.712
   - name: "Virgin Holidays"
-    logo: /images/virgin.svg
+    logo: /images/virgin.png
     scale: 1.181
+    blend: true
   - name: "PiC"
     logo: /images/pic.jpg
     scale: 0.854
