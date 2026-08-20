@@ -43,9 +43,8 @@ organisations:
     logo: /images/jaguar-land-rover.svg
     scale: 1.089
   - name: "WTW"
-    logo: /images/wtw.png
-    scale: 0.731
-    blend: true
+    logo: /images/wtw.svg
+    scale: 0.737
   - name: "GroHappy"
     logo: /images/grohappy.png
     scale: 1.266
