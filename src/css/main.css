@@ -833,6 +833,19 @@ strong {
   font-size: 0.9em;
 }
 
+/* mailto: fails silently for anyone without a mail handler — webmail in a
+   browser, most often. The address in plain text is their way through. */
+.contact-address {
+  max-width: 360px;
+  margin: var(--space-16) 0 0;
+  font-family: var(--font-display);
+  font-size: var(--size-caption);
+  font-weight: 400;
+  color: var(--ink-soft);
+  text-align: center;
+  user-select: all;
+}
+
 /* --- About photograph ---------------------------------------------------- */
 /* Roughly half the column, breaking left into the margin column. */
 

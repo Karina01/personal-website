@@ -22,5 +22,7 @@ description: Get in touch with Karina Brown.
         <span class="visually-hidden">(opens in a new tab)</span>
       </a>
     </div>
+
+    <p class="contact-address">{{ site.email }}</p>
   </div>
 </div>
