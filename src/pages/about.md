@@ -2,11 +2,14 @@
 permalink: /about/
 title: About
 description: Who Karina Brown is beyond work.
+# Uncomment and fill in to bring the photograph back. Nothing is emitted
+# until src is set. Export at 1100px wide or more: the slot renders 528px on
+# desktop and up to 680px below 900px, so anything smaller looks soft.
 photo:
-  src: /images/KB_Headshot.jpg
-  width: 509
-  height: 510
-  alt: "Karina Brown, in a navy blazer, in front of a wall of vertical wooden slats"
+  # src: /images/karina.jpg
+  # width: 1100
+  # height: 1100
+  # alt: "TODO — describe the photograph"
 ---
 Hi, I'm Karina.
 
