@@ -95,9 +95,9 @@ I'm building things too. It's crazy how fast we can now go from idea to product 
 I'm open to work and to collaborating on projects. If you'd like to discuss what you're working on, what I'm working on, or a gap you're trying to fill, then please [get in touch](/contact/).
 {% endchapter %}
 
-<section class="row section" data-reveal>
+<section class="row orgs-section" data-reveal>
   <div class="row__full">
-    <h2 class="meta orgs__label">Some of the organisations I have worked for</h2>
+    <h2 class="orgs__label">Some of the organisations I have worked for</h2>
     <ul class="orgs">
       {% for org in organisations %}
         <li class="orgs__item">

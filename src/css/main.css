@@ -811,8 +811,28 @@ strong {
    over-corrects and balloons the sparse marks. Values are measured, not
    guessed; see README for how to recompute them. */
 
+/* Set apart from the chapters by a rule and a good deal of space. */
+.orgs-section {
+  padding-top: var(--space-64);
+  padding-bottom: var(--space-48);
+}
+
+.orgs-section .row__full {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--space-64);
+}
+
+/* Was carrying .meta — 13px, letter-spaced, --ink-soft — which is the
+   treatment used for date ranges, so it read as a label rather than as the
+   heading of a section. Now h3 size: a heading, but quieter than a chapter. */
 .orgs__label {
-  margin-bottom: var(--space-32);
+  font-family: var(--font-display);
+  font-size: var(--size-h3);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--ink);
+  margin: 0 0 var(--space-32);
 }
 
 .orgs {
