@@ -14,39 +14,37 @@ organisations:
   - name: "IKEA"
     logo: /images/ikea.svg
     scale: 0.659
-  - name: "Wartsila"
-    logo: /images/wartsila.svg
-    scale: 1.143
+  - name: "Rolls-Royce"
+    logo: /images/rolls-royce.svg
+    scale: 1.037
+  - name: "Tate & Lyle"
+    logo: /images/tate-lyle.svg
+    scale: 0.62
   - name: "EDF"
     logo: /images/edf.svg
     scale: 0.937
+  - name: "Wartsila"
+    logo: /images/wartsila.svg
+    scale: 1.143
+  - name: "Avis Budget Group"
+    logo: /images/avis-budget-group.svg
+    scale: 0.712
+  - name: "Virgin Holidays"
+    logo: /images/virgin.svg
+    scale: 1.181
+  - name: "PiC"
+    logo: /images/pic.jpg
+    scale: 0.854
   - name: "SSE"
     logo: /images/sse.svg
     scale: 1.0
   - name: "Jaguar Land Rover"
     logo: /images/jaguar-land-rover.svg
     scale: 1.089
-  - name: "Virgin Holidays"
-    logo: /images/virgin.svg
-    scale: 1.181
-  - name: "Tate & Lyle"
-    logo: /images/tate-lyle.svg
-    scale: 0.62
-    wide: true
-  - name: "Avis Budget Group"
-    logo: /images/avis-budget-group.svg
-    scale: 0.712
-    wide: true
   - name: "WTW"
-    logo: /images/wtw.svg
-    scale: 0.724
-    wide: true
-  - name: "Rolls-Royce"
-    logo: /images/rolls-royce.svg
-    scale: 1.037
-  - name: "PiC"
-    logo: /images/pic.jpg
-    scale: 0.854
+    logo: /images/wtw.png
+    scale: 0.731
+    blend: true
   - name: "GroHappy"
     logo: /images/grohappy.png
     scale: 1.266
@@ -98,13 +96,13 @@ I'm open to work and to collaborating on projects. If you'd like to discuss what
 {% endchapter %}
 
 <section class="row section" data-reveal>
-  <div class="row__main">
+  <div class="row__full">
     <h2 class="meta orgs__label">Some of the organisations I have worked for</h2>
     <ul class="orgs">
       {% for org in organisations %}
-        <li class="orgs__item{% if org.wide %} orgs__item--wide{% endif %}">
+        <li class="orgs__item">
           {% if org.logo %}
-            <img class="orgs__logo" src="{{ org.logo }}" alt="{{ org.name }}" style="--s: {{ org.scale }}" loading="lazy" decoding="async">
+            <img class="orgs__logo{% if org.blend %} orgs__logo--blend{% endif %}" src="{{ org.logo }}" alt="{{ org.name }}" style="--s: {{ org.scale }}" loading="lazy" decoding="async">
           {% else %}
             <span class="orgs__name">{{ org.name }}</span>
           {% endif %}

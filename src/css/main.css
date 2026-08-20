@@ -313,6 +313,12 @@ strong {
   min-width: 0;
 }
 
+/* Spans the margin column and the text column together. */
+.row__full {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+
 /* Full-bleed: home hero and the flip-card band only. */
 .bleed {
   width: 100%;
@@ -812,8 +818,8 @@ strong {
 .orgs {
   --logo-h: 44px;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-32) var(--space-32);
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-32) var(--space-24);
   list-style: none;
   margin: 0;
   padding: 0;
@@ -827,11 +833,6 @@ strong {
   margin: 0;
 }
 
-/* Very wide lockups take two columns rather than shrinking to nothing. */
-.orgs__item--wide {
-  grid-column: span 2;
-}
-
 .orgs__logo {
   width: auto;
   max-width: 100%;
@@ -839,6 +840,12 @@ strong {
   object-fit: contain;
   filter: grayscale(1) sepia(0.45) hue-rotate(48deg) saturate(0.5)
     brightness(0.97) opacity(0.7);
+}
+
+/* A raster logo supplied on a white background: multiply drops the white
+   out against the light ground, so no box shows behind the mark. */
+.orgs__logo--blend {
+  mix-blend-mode: multiply;
 }
 
 /* Organisations with no logo yet keep their name, in the same muted tone. */
