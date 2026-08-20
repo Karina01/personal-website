@@ -5,31 +5,24 @@ permalink: /experience/
 title: Experience
 description: A brief story of Karina Brown's career to date.
 organisations:
-  - name: "McDonald's"
-    logo: /images/mcdonalds.svg
-    scale: 1.035
-  - name: "Rolls-Royce"
-    logo: /images/rolls-royce.svg
-    scale: 1.037
+  - name: "Ørsted"
+    logo: /images/orsted.svg
+    scale: 0.776
   - name: "EY"
     logo: /images/ey.svg
     scale: 1.078
-  - name: "EDF Energy"
+  - name: "IKEA"
+    logo: /images/ikea.svg
+    scale: 0.659
+  - name: "Wartsila"
+    logo: /images/wartsila.svg
+    scale: 1.143
+  - name: "EDF"
     logo: /images/edf.svg
-    scale: 0.993
+    scale: 0.937
   - name: "SSE"
     logo: /images/sse.svg
     scale: 1.0
-  - name: "Avis Budget Group"
-    logo: /images/avis-budget-group.svg
-    scale: 0.712
-    wide: true
-  - name: "Irish Water (Uisce Éireann)"
-  - name: "RBC Wealth Management"
-  - name: "WTW"
-    logo: /images/wtw.svg
-    scale: 0.724
-    wide: true
   - name: "Jaguar Land Rover"
     logo: /images/jaguar-land-rover.svg
     scale: 1.089
@@ -40,21 +33,26 @@ organisations:
     logo: /images/tate-lyle.svg
     scale: 0.62
     wide: true
-  - name: "IKEA"
-    logo: /images/ikea.svg
-    scale: 0.659
-  - name: "Wartsila"
-    logo: /images/wartsila.svg
-    scale: 1.143
-  - name: "Ørsted"
-    logo: /images/orsted.svg
-    scale: 0.776
+  - name: "Avis Budget Group"
+    logo: /images/avis-budget-group.svg
+    scale: 0.712
+    wide: true
+  - name: "WTW"
+    logo: /images/wtw.svg
+    scale: 0.724
+    wide: true
+  - name: "Rolls-Royce"
+    logo: /images/rolls-royce.svg
+    scale: 1.037
   - name: "PiC"
     logo: /images/pic.jpg
     scale: 0.854
   - name: "GroHappy"
     logo: /images/grohappy.png
     scale: 1.266
+  - name: "McDonald's"
+    logo: /images/mcdonalds.svg
+    scale: 1.035
 ---
 {#
   First argument is the date range shown in the margin column, second is the
