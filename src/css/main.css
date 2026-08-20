@@ -846,9 +846,19 @@ p {
 .project__figure img {
   width: 100%;
   height: auto;
+  /* One shape for all of them: a landscape screenshot and a portrait photo
+     otherwise sit at different heights and the column looks accidental.
+     Cropping in CSS keeps the source files uncropped and reversible. */
+  aspect-ratio: 1;
+  object-fit: cover;
   border-radius: var(--radius-control);
   /* Unifies images of different origins. Tuned once, applies to all. */
   filter: saturate(0.85) contrast(1.02);
+}
+
+/* A mark has to fit the square, not fill it — cover would crop the logo. */
+.project__figure img[src$='.svg'] {
+  object-fit: contain;
 }
 
 .prose .project__title,
