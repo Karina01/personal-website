@@ -12,7 +12,7 @@ description: Get in touch with Karina Brown.
 </div>
 
 <div class="row section" data-reveal>
-  <div class="row__main">
+  <div class="row__full">
     <p class="contact-intro">I&rsquo;m open to work and to collaborating on projects. Get in touch if you&rsquo;d like to discuss what you&rsquo;re working on, what I&rsquo;m working on, or a gap you&rsquo;re trying to fill.</p>
 
     <div class="contact-actions">
