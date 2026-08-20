@@ -822,16 +822,16 @@ strong {
   padding-top: var(--space-64);
 }
 
-/* Was carrying .meta — 13px, letter-spaced, --ink-soft — which is the
-   treatment used for date ranges, so it read as a label rather than as the
-   heading of a section. Now h3 size: a heading, but quieter than a chapter. */
+/* Caption size: small enough not to compete with the logos below it, but
+   without the letter-spacing and metadata colouring it carried originally,
+   which made it read as a label rather than as a heading. */
 .orgs__label {
   font-family: var(--font-display);
-  font-size: var(--size-h3);
+  font-size: var(--size-caption);
   font-weight: 500;
-  line-height: 1.3;
+  line-height: 1.4;
   letter-spacing: 0;
-  color: var(--ink);
+  color: var(--ink-soft);
   margin: 0 0 var(--space-32);
 }
 
