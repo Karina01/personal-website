@@ -5,23 +5,56 @@ permalink: /experience/
 title: Experience
 description: A brief story of Karina Brown's career to date.
 organisations:
-  - McDonald's
-  - Rolls-Royce
-  - EY
-  - EDF Energy
-  - SSE
-  - Avis Budget Group
-  - Irish Water (Uisce Éireann)
-  - RBC Wealth Management
-  - WTW
-  - Jaguar Land Rover
-  - Virgin Holidays
-  - Tate & Lyle
-  - IKEA
-  - Wartsila
-  - Ørsted
-  - PiC
-  - GroHappy
+  - name: "McDonald's"
+    logo: /images/mcdonalds.svg
+    scale: 1.035
+  - name: "Rolls-Royce"
+    logo: /images/rolls-royce.svg
+    scale: 1.037
+  - name: "EY"
+    logo: /images/ey.svg
+    scale: 1.078
+  - name: "EDF Energy"
+    logo: /images/edf.svg
+    scale: 0.993
+  - name: "SSE"
+    logo: /images/sse.svg
+    scale: 1.0
+  - name: "Avis Budget Group"
+    logo: /images/avis-budget-group.svg
+    scale: 0.712
+    wide: true
+  - name: "Irish Water (Uisce Éireann)"
+  - name: "RBC Wealth Management"
+  - name: "WTW"
+    logo: /images/wtw.svg
+    scale: 0.724
+    wide: true
+  - name: "Jaguar Land Rover"
+    logo: /images/jaguar-land-rover.svg
+    scale: 1.089
+  - name: "Virgin Holidays"
+    logo: /images/virgin.svg
+    scale: 1.181
+  - name: "Tate & Lyle"
+    logo: /images/tate-lyle.svg
+    scale: 0.62
+    wide: true
+  - name: "IKEA"
+    logo: /images/ikea.svg
+    scale: 0.659
+  - name: "Wartsila"
+    logo: /images/wartsila.svg
+    scale: 1.143
+  - name: "Ørsted"
+    logo: /images/orsted.svg
+    scale: 0.776
+  - name: "PiC"
+    logo: /images/pic.jpg
+    scale: 0.854
+  - name: "GroHappy"
+    logo: /images/grohappy.png
+    scale: 1.266
 ---
 {#
   First argument is the date range shown in the margin column, second is the
@@ -70,7 +103,15 @@ I'm open to work and to collaborating on projects. If you'd like to discuss what
   <div class="row__main">
     <h2 class="meta orgs__label">Some of the organisations I have worked for</h2>
     <ul class="orgs">
-      {% for org in organisations %}<li>{{ org }}</li>{% endfor %}
+      {% for org in organisations %}
+        <li class="orgs__item{% if org.wide %} orgs__item--wide{% endif %}">
+          {% if org.logo %}
+            <img class="orgs__logo" src="{{ org.logo }}" alt="{{ org.name }}" style="--s: {{ org.scale }}" loading="lazy" decoding="async">
+          {% else %}
+            <span class="orgs__name">{{ org.name }}</span>
+          {% endif %}
+        </li>
+      {% endfor %}
     </ul>
   </div>
 </section>

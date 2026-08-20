@@ -797,35 +797,72 @@ strong {
   border-radius: var(--radius-control);
 }
 
-/* --- Organisations list --------------------------------------------------- */
-/* A quiet colophon, not a logo wall and not a CV. Names only. */
+/* --- Organisations wall -------------------------------------------------- */
+/* Logos, muted to sit with the palette rather than shout brand colours.
+   Each carries its own --s scale: at equal height a solid mark like IKEA
+   measures nine times the ink of an open one like Wärtsilä, so sizes are
+   normalised toward equal ink coverage — halfway, since full correction
+   over-corrects and balloons the sparse marks. Values are measured, not
+   guessed; see README for how to recompute them. */
 
 .orgs__label {
-  margin-bottom: var(--space-24);
+  margin-bottom: var(--space-32);
 }
 
 .orgs {
-  columns: 3;
-  column-gap: var(--space-48);
+  --logo-h: 44px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-32) var(--space-32);
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.orgs__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 56px;
+  margin: 0;
+}
+
+/* Very wide lockups take two columns rather than shrinking to nothing. */
+.orgs__item--wide {
+  grid-column: span 2;
+}
+
+.orgs__logo {
+  width: auto;
+  max-width: 100%;
+  height: calc(var(--logo-h) * var(--s, 1));
+  object-fit: contain;
+  filter: grayscale(1) sepia(0.45) hue-rotate(48deg) saturate(0.5)
+    brightness(0.97) opacity(0.7);
+}
+
+/* Organisations with no logo yet keep their name, in the same muted tone. */
+.orgs__name {
   font-family: var(--font-display);
   font-size: var(--size-caption);
   font-weight: 400;
-  line-height: 1.5;
+  line-height: 1.4;
+  text-align: center;
   color: var(--ink-soft);
+  opacity: 0.75;
 }
 
-.orgs li {
-  break-inside: avoid;
-  margin-bottom: var(--space-8);
+@media (max-width: 899px) {
+  .orgs {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-24);
+  }
 }
 
 @media (max-width: 639px) {
   .orgs {
-    columns: 2;
-    column-gap: var(--space-24);
+    --logo-h: 36px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
