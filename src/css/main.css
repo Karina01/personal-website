@@ -270,6 +270,13 @@ p {
   margin-bottom: 0;
 }
 
+/* Only 400 and 500 are loaded, so bold must resolve to 500 rather than let
+   the browser synthesise a heavier face the brief does not use. */
+.prose strong,
+strong {
+  font-weight: 500;
+}
+
 .prose h3 {
   margin: var(--space-48) 0 var(--space-12);
 }
