@@ -352,6 +352,12 @@ p {
   height: 44px;
 }
 
+/* The file carries a literal fill so it works standalone in an <img>. When
+   inlined here, hand control back to `color` so hover and the invert work. */
+.nav__home svg path {
+  fill: currentColor;
+}
+
 .nav__home-text {
   font-family: var(--font-display);
   font-size: var(--size-caption);
@@ -818,25 +824,43 @@ p {
 
 /* --- Project index ------------------------------------------------------- */
 
+/* Each project is a row on the site grid: image in the margin column,
+   title and copy in the text column — the same shape as an Experience
+   chapter. The divider is a grid item so it spans the tracks exactly,
+   rather than the full width of the row element. */
 .project {
-  border-top: 1px solid var(--rule);
-  padding-block: var(--space-32);
+  padding-bottom: var(--space-32);
 }
 
-.project:last-child {
+.project::before {
+  content: '';
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--rule);
+  margin-bottom: var(--space-32);
+}
+
+.project:last-of-type {
   border-bottom: 1px solid var(--rule);
 }
 
+.project__figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-control);
+  /* Unifies images of different origins. Tuned once, applies to all. */
+  filter: saturate(0.85) contrast(1.02);
+}
+
+.prose .project__title,
 .project__title {
   margin-bottom: var(--space-12);
 }
 
-/* Scoped under .prose to outrank the body-copy link styling, since the
-   layout renders page content inside .prose. */
 .prose .project__link,
 .project__link {
   color: var(--ink);
   text-decoration: none;
+  text-decoration-color: transparent;
   border-bottom: 1px solid transparent;
   transition: color 200ms ease-out, border-color 200ms ease-out;
 }
@@ -845,6 +869,16 @@ p {
 .project__link:hover {
   color: var(--accent-deep);
   border-bottom-color: var(--accent);
+}
+
+@media (max-width: 899px) {
+  .project__figure {
+    margin-bottom: var(--space-16);
+  }
+
+  .project__figure img {
+    max-width: 140px;
+  }
 }
 
 /* --- Motion -------------------------------------------------------------- */
