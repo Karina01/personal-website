@@ -35,23 +35,23 @@ organisations:
 </div>
 
 {% chapter "2012 — 2016", "Learning the ropes" %}
-I learned how large organisations work by advising them. I spent four years in EY's energy practice, building strategies for UK energy retailers, designing operating models for large European organisations, and modelling investment cases. I learned how to solve problems in a structured way, how to run projects and how to communicate things clearly.
+I learned how large organisations work by advising them. I spent four years in **EY**'s energy practice, building strategies for UK energy retailers, designing operating models for large European organisations, and modelling investment cases. I learned how to solve problems in a structured way, how to run projects and how to communicate things clearly.
 
 It was an excellent education in how big companies actually make decisions, but I found I craved being more hands-on, rather than handing over recommendations.
 {% endchapter %}
 
 {% chapter "2015 — 2021", "Building" %}
-I joined the founding team at PiC, building an analytics product that helped organisations hire more diversely, and led the financial modelling that helped secure our investment round. I loved going from pitching in the morning to coding in the afternoon — really living the breadth of an early stage startup team.
+I joined the founding team at **PiC**, building an analytics product that helped organisations hire more diversely, and led the financial modelling that helped secure our investment round. I loved going from pitching in the morning to coding in the afternoon — really living the breadth of an early stage startup team.
 
-I founded GroHappy, a B2B career development product used by leading professional services firms and fast-growth tech companies. We funded it through angel investment and consulting on the side, which was intense but allowed us to experiment as it grew.
+I founded **GroHappy**, a B2B career development product used by leading professional services firms and fast-growth tech companies. We funded it through angel investment and consulting on the side, which was intense but allowed us to experiment as it grew.
 
-At the Institute of Clever Stuff, I built analytics products with talented data scientists for our clients rather than for myself: one product designed to inform €100M+ investment decisions in retail, another launched to 4,000 engineers worldwide.
+At the **Institute of Clever Stuff**, I built analytics products with talented data scientists for our clients rather than for myself: one product designed to inform €100M+ investment decisions in retail, another launched to 4,000 engineers worldwide.
 
-When moving to Copenhagen I wanted to work on the green transition, to have a more active role in addressing the climate crisis. I was offered a place on Antler's green tech entrepreneur programme, but decided to join a company already driving the green transition.
+When moving to Copenhagen I wanted to work on the green transition, to have a more active role in addressing the climate crisis. I was offered a place on **Antler**'s green tech entrepreneur programme, but decided to join a company already driving the green transition.
 {% endchapter %}
 
 {% chapter "2021 — 2026", "Inside the green transition" %}
-I took a course in energy system modelling at DTU and joined Ørsted (the world's leading offshore wind developer) a few weeks later. During nearly 5 years there I worked on strategy projects, led a team analysing emerging Power-to-X markets, and led an organisation-wide programme that identified 1bn DKK in savings. I built Ørsted's approach to forecasting future capability needs, and led the team driving Ørsted's transformation.
+I took a course in energy system modelling at **DTU** and joined **Ørsted** (the world's leading offshore wind developer) a few weeks later. During nearly 5 years there I worked on strategy projects, led a team analysing emerging Power-to-X markets, and led an organisation-wide programme that identified 1bn DKK in savings. I built Ørsted's approach to forecasting future capability needs, and led the team driving Ørsted's transformation.
 
 I had the chance to apply the analytical training, the operating-model work and the instinct for building in a company whose mission I believe in.
 {% endchapter %}
