@@ -1,0 +1,52 @@
+---
+layout: layouts/base.njk
+permalink: /current-projects/fortheloveofBMO/
+title: For the love of BMO
+description: For the love of BMO — a fortnightly newsletter about Copenhagen's cheese buns, by Karina Brown.
+---
+<div class="page-head bleed">
+  <div class="page-head__inner">
+    <h1 class="page-head__title">For the love of BMO</h1>
+    {# TODO: Karina's intro copy, if this page wants any. The Current
+       projects blurb that links here already describes the newsletter, so
+       repeating it verbatim would say the same thing twice in two clicks. #}
+  </div>
+</div>
+
+{% for post in collections.writing %}
+  <article class="row entry" data-reveal>
+    {% if post.data.hero.src %}
+      {# Decorative: the title beside it carries the link, so a second link
+         to the same post would only add noise. #}
+      <div class="row__margin entry__figure">
+        <img
+          src="{{ post.data.hero.src }}"
+          width="{{ post.data.hero.width }}"
+          height="{{ post.data.hero.height }}"
+          alt=""
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
+    {% endif %}
+    <div class="row__main">
+      <p class="meta">
+        <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+      </p>
+      <h2 class="entry__title">
+        <a class="entry__link" href="{{ post.url }}">{{ post.data.title }}</a>
+      </h2>
+      {% if post.data.deck %}<p class="entry__deck">{{ post.data.deck }}</p>{% endif %}
+    </div>
+  </article>
+{% endfor %}
+
+<div class="row section">
+  <div class="row__main">
+    <p class="meta">
+      New posts land on
+      <a href="https://fortheloveofbmo.substack.com/" rel="noopener">Substack</a>
+      first, and appear here shortly after.
+    </p>
+  </div>
+</div>

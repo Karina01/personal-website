@@ -33,6 +33,12 @@ export default function (eleventyConfig) {
       .sort((a, b) => (a.data.order || 0) - (b.data.order || 0))
   );
 
+  // Newsletter posts, newest first. They are imported from Substack by
+  // tools/import-substack.mjs, so the date is the Substack publication date.
+  eleventyConfig.addCollection("writing", (api) =>
+    api.getFilteredByTag("writing").sort((a, b) => b.date - a.date)
+  );
+
   // The home mark in the top-left. Inlined so it can take currentColor and
   // needs no extra request. Falls back to the site title until the file lands.
   eleventyConfig.addGlobalData("logoSvg", () => {

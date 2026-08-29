@@ -6,14 +6,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if title and page.url != "/" %}{{ title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
-    {% if description %}<meta name="description" content="{{ description }}" />{% endif %}
+    {% set metaDescription = description or deck %}
+    {% if metaDescription %}<meta name="description" content="{{ metaDescription }}" />{% endif %}
     <link rel="preload" href="/fonts/schibsted-grotesk-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/newsreader-var.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="icon" href="/images/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/images/favicon-64.png" sizes="64x64" type="image/png" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <link rel="stylesheet" href="/css/main.css" />
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    {# Newsletter posts are mirrored from Substack, which stays the place of
+       record, so they point their canonical back there rather than compete
+       with the original in search. Every other page is its own canonical. #}
+    <link rel="canonical" href="{% if substack %}{{ substack }}{% else %}{{ site.url }}{{ page.url }}{% endif %}" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>

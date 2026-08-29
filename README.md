@@ -14,9 +14,11 @@ npm run build # writes _site/
 ## Where things live
 
 ```
-src/pages/       the five pages
+src/pages/       the five main pages, plus the BMO newsletter archive
 src/projects/    Current Projects subpages (auto-listed on /current-projects/)
-src/writing/     stubbed for newsletter posts — nothing links here yet
+src/writing/     newsletter posts, imported from Substack (see below)
+                 published under /current-projects/fortheloveofBMO/
+tools/           the Substack importer
 src/_includes/   base, page and post layouts, nav and footer partials
 src/css/main.css every design token, defined once at the top
 src/fonts/       self-hosted woff2, Latin subset
@@ -44,6 +46,56 @@ Drop a markdown file in `src/projects/` with `title` and `order` in the front
 matter. It gets its own page and appears on `/current-projects/`, which
 renders each project's own body — so the text lives in one file only and the
 index cannot drift out of step with the subpage.
+
+### The newsletter
+
+Substack stays the place the newsletter is written and published. The site
+keeps a reading copy, imported one way:
+
+```
+npm run import              # write anything new
+npm run import -- --force   # rewrite every post
+npm run import -- --dry-run # report, touch nothing
+```
+
+The newsletter is deliberately not in the top nav. It is reached from the
+"For the love of BMO" blurb in `src/projects/for-the-love-of-bmo.md`, whose
+"here" link points at the archive; that one file feeds both `/current-projects/`
+and the project's own page, so the link cannot drift out of step.
+
+`tools/import-substack.mjs` reads the public RSS feed, which carries the full
+post body in `content:encoded`. For each post it:
+
+- reuses the Substack slug, so a post has the same address in both places;
+- cuts the deck at the first sentence. The feed's "description" is Substack's
+  auto-excerpt and runs to whatever length it likes; one sentence suits the
+  index card and lands near the 155 characters search engines show. It is left
+  whole when there is nothing safe to cut at — an excerpt already truncated
+  mid-thought, or a full stop that belongs to an abbreviation;
+- strips the Substack furniture — the span soup around every run of text, the
+  nested image wrappers, the expand buttons and the subscribe form — leaving
+  the small vocabulary the posts actually use: `p`, `h2`, `h3`, `em`,
+  `strong`, `a`, `figure`, `blockquote`, `hr`;
+- demotes any body `h1` to `h2`, since the page title is the `h1`;
+- turns the closing "If you go" run of `<strong>Label:</strong> value`
+  paragraphs into a description list, which the layout sets as a reference
+  block (`.factbox`);
+- pulls every image into `src/images/writing/<slug>/`, asking the Substack CDN
+  for a 1456px WebP rather than the multi-megabyte camera original, and writes
+  intrinsic `width`/`height` so the page does not reflow as they arrive.
+
+Posts already on disk are left alone unless `--force` is passed, so editing an
+imported file by hand is safe.
+
+Two things are worth knowing:
+
+- **Alt text.** Substack posts carry none. Where an image has a caption the
+  caption is used; otherwise `alt=""` is written, which marks the photograph
+  decorative. Real alt text has to be added by hand.
+- **Canonical.** Posts point `rel=canonical` at Substack, so the original
+  keeps the search authority and the copy here does not compete with it. That
+  is one line in `src/_includes/layouts/base.njk` if the trade is ever worth
+  reversing.
 
 ### The home mark
 

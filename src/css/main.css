@@ -1021,6 +1021,207 @@ strong {
   }
 }
 
+/* --- Newsletter ---------------------------------------------------------- */
+/* Posts are imported from Substack, so the body arrives as a small fixed
+   vocabulary: h2, p, em, strong, a, figure and the "If you go" reference
+   block. Everything here dresses that vocabulary in the site's own type. */
+
+/* The index reuses the project row exactly — photograph in the margin
+   column, words in the text column — so the archive reads as another list
+   on the same grid rather than a new kind of page. */
+.entry {
+  padding-bottom: var(--space-32);
+}
+
+.entry::before {
+  content: '';
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--rule);
+  margin-bottom: var(--space-32);
+}
+
+.entry:last-of-type {
+  border-bottom: 1px solid var(--rule);
+}
+
+.entry__figure img {
+  width: 100%;
+  height: auto;
+  /* Square, like the project thumbnails: the heroes are a mix of landscape
+     and portrait and the column looks accidental otherwise. */
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: var(--radius-control);
+  filter: saturate(0.85) contrast(1.02);
+}
+
+.entry__title {
+  margin: var(--space-8) 0 var(--space-12);
+}
+
+.entry__link {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 200ms ease-out, border-color 200ms ease-out;
+}
+
+.entry__link:hover {
+  color: var(--accent-deep);
+  border-bottom-color: var(--accent);
+}
+
+/* The deck is the standfirst Substack sends in the feed: reading copy, so it
+   takes the body face rather than the display one the meta line uses. */
+.entry__deck {
+  font-family: var(--font-text);
+  font-size: var(--size-body);
+  line-height: 1.6;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* Back to the index, sitting in the post's meta line. */
+.meta__back {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule);
+  transition: color 200ms ease-out, border-color 200ms ease-out;
+}
+
+.meta__back:hover {
+  color: var(--accent-deep);
+  border-bottom-color: var(--accent);
+}
+
+.post__figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-control);
+}
+
+/* Photographs inside the body keep the measure. They are given more room
+   above than below, so each one attaches to the paragraph it follows. */
+.post__figure {
+  margin: var(--space-48) 0 var(--space-32);
+}
+
+.post__figure figcaption {
+  margin-top: var(--space-12);
+}
+
+/* Substack posts have no h1 in the body after import — the page title holds
+   that — so h2 is the section level and needs the spacing h3 already had. */
+.prose h2 {
+  margin: var(--space-64) 0 var(--space-16);
+}
+
+.prose h2:first-child {
+  margin-top: 0;
+}
+
+.prose blockquote {
+  margin: var(--space-32) 0;
+  padding-left: var(--space-24);
+  border-left: 2px solid var(--rule);
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.prose hr {
+  border: 0;
+  border-top: 1px solid var(--rule);
+  margin: var(--space-48) 0;
+}
+
+/* --- "If you go" --------------------------------------------------------- */
+/* Every review closes with the same run of label-and-value lines. The
+   importer turns them into a description list; this sets them as a reference
+   block, so the eye can tell at a glance where the prose stops and the
+   practical details start. */
+
+.factbox {
+  margin-top: var(--space-64);
+  padding: var(--space-32);
+  background: var(--ground-sunk);
+  border-radius: var(--radius-card);
+}
+
+/* Scoped past .prose h2, which would otherwise impose the section spacing
+   on a heading that sits inside the box's own padding. */
+.prose .factbox__heading,
+.factbox__heading {
+  font-size: var(--size-h3);
+  margin: 0 0 var(--space-24);
+}
+
+.factbox__list {
+  display: grid;
+  /* Labels are short and repeat post to post, so they get a fixed column and
+     the values line up down the block. */
+  grid-template-columns: 180px minmax(0, 1fr);
+  column-gap: var(--space-24);
+  row-gap: var(--space-16);
+  margin: 0;
+}
+
+.factbox__term {
+  font-family: var(--font-display);
+  font-size: var(--size-meta);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  /* Nudged onto the baseline of the 17px value beside it. */
+  padding-top: 2px;
+}
+
+.factbox__detail {
+  margin: 0;
+  font-size: var(--size-body);
+  line-height: 1.6;
+}
+
+/* The attribution back to Substack, which stays the place of record. */
+.post__foot {
+  padding-top: var(--space-32);
+  padding-bottom: var(--space-48);
+}
+
+.post__foot .row__main {
+  border-top: 1px solid var(--rule);
+  padding-top: var(--space-24);
+}
+
+@media (max-width: 899px) {
+  .entry__figure {
+    margin-bottom: var(--space-16);
+  }
+
+  .entry__figure img {
+    max-width: 140px;
+  }
+
+  .factbox {
+    padding: var(--space-24);
+  }
+
+  /* One column: at this width a 180px label column leaves the values too
+     narrow to read. */
+  .factbox__list {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: var(--space-4);
+  }
+
+  .factbox__term {
+    padding-top: var(--space-12);
+  }
+
+  .factbox__term:first-of-type {
+    padding-top: 0;
+  }
+}
+
 /* --- Motion -------------------------------------------------------------- */
 /* Applied by JS only when motion is welcome, so no-JS shows everything. */
 
