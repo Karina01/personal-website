@@ -1,18 +1,42 @@
 ---
 layout: layouts/base.njk
 ---
-{# Stubbed for newsletter posts. Not linked from anywhere yet. #}
-<article>
+{# One newsletter post. The body is imported from Substack, which stays the
+   place the newsletter is written and published; this is the reading copy. #}
+<article class="post">
   <div class="page-head bleed">
     <div class="page-head__inner">
-      <p class="meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></p>
+      <p class="meta">
+        <a class="meta__back" href="/current-projects/fortheloveofBMO/">For the love of BMO</a>
+        <span aria-hidden="true">·</span>
+        <time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time>
+      </p>
       <h1 class="page-head__title">{{ title }}</h1>
-      {% if lead %}<p class="lead page-head__lead">{{ lead }}</p>{% endif %}
+      {# No standfirst here. Substack's feed "description" is not a subtitle,
+         it is an auto-excerpt — the opening paragraph cut short — so printing
+         it above the body would say the same words twice. It still earns its
+         place on the index, where there is no body under it, and as the
+         page's meta description. #}
     </div>
   </div>
+
+  {# No hero here. The feed's cover image is often the first photograph in
+     the post as well, so leading with it showed the same picture twice; the
+     body carries its own images in the order they were written. The cover
+     still does its job on the index, as the thumbnail for this post. #}
+
   <div class="row section" data-reveal>
     <div class="row__main prose">
       {{ content | safe }}
+    </div>
+  </div>
+
+  <div class="row post__foot">
+    <div class="row__main">
+      <p class="meta">
+        Originally published on
+        <a href="{{ substack }}" rel="noopener">Substack</a>.
+      </p>
     </div>
   </div>
 </article>
