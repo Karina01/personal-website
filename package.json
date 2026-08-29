@@ -6,11 +6,15 @@
   "type": "module",
   "scripts": {
     "start": "eleventy --serve",
-    "build": "eleventy"
+    "build": "eleventy",
+    "import": "node tools/import-substack.mjs"
   },
   "license": "UNLICENSED",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
+    "dom-serializer": "^2.0.0",
+    "domutils": "^3.2.2",
+    "htmlparser2": "^10.0.0",
     "markdown-it": "^15.0.0"
   }
 }
